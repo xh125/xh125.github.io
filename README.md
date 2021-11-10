@@ -1,1 +1,5 @@
-# xh125.github.io
+# xh125.github.io   
+
+```bash
+bundle install
+```
