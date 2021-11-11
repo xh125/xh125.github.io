@@ -14,7 +14,7 @@ tags:
 [Visual Studio 2020下载地址](https://visualstudio.microsoft.com/zh-hans/vs/)  
   目前Visual Studio 2020不能与Intel(R) Parallel Studio XE 2020和Intel OneApi兼容，
   如需要使用Fortran和MKL库，需要使用Visual Studio 2019  
-[Lists of the release details for Visual Studio 2019][1]
+[Lists of the release details for Visual Studio 2019][1]  
   由于升级Version 16.11.6版本后，不再兼容Intel(R) Parallel Studio XE 2020 Update 4，
   需要将Visual Studio 2019的版本退回
 
