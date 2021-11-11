@@ -11,7 +11,7 @@ tags:
 ---
 
 ## 下载  
-[Visual Studio下载地址](https://visualstudio.microsoft.com/zh-hans/vs/)  
+[Visual Studio 2020下载地址](https://visualstudio.microsoft.com/zh-hans/vs/)  
 [Lists of the release details for Visual Studio 2019](https://docs.microsoft.com/en-us/visualstudio/releases/2019/history)  
 由于升级Version 16.11.6版本后，不再兼容Intel(R) Parallel Studio XE 2020 Update 4，需要将Visual Studio 2019的版本退回
 
