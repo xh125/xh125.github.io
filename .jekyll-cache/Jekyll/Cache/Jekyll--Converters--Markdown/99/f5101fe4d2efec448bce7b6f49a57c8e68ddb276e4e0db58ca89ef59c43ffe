@@ -1,0 +1,35 @@
+I"<h2 id="下载">下载</h2>
+
+<p><a href="https://visualstudio.microsoft.com/zh-hans/vs/"><strong>Visual Studio 2020下载地址</strong></a><br />
+  目前Visual Studio 2020不能与Intel(R) Parallel Studio XE 2020和<a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.fjz895">Intel OneApi</a>兼容，
+  如需要使用Intel Fortran Compiler和MKL库，需要使用Visual Studio 2019</p>
+
+<p><a href="https://docs.microsoft.com/en-us/visualstudio/releases/2019/history"><strong>Lists of the release details for Visual Studio 2019</strong></a><br />
+  由于升级Version 16.11.6版本后，不再兼容Intel(R) Parallel Studio XE 2020 Update 4，
+  需要将Visual Studio 2019的版本退回。先将高版本的Visual Studio 2019和
+  Intel(R) Parallel Studio XE 2020 Update 4卸载，然后从<a href="https://docs.microsoft.com/en-us/visualstudio/releases/2019/history">Lists</a>中下载Version 16.11.5的Installers，
+  重新安装Visual Studio 2019和Intel(R) Parallel Studio XE 2020 Update 4</p>
+
+<h2 id="激活码">激活码</h2>
+
+<h3 id="visual-studio-2022vs2022激活密钥">Visual Studio 2022(VS2022)激活密钥</h3>
+
+<p><strong>Professional:</strong></p>
+
+<p>TD244-P4NB7-YQ6XK-Y8MMM-YWV2J</p>
+
+<p><strong>Enterprise:</strong></p>
+
+<p>VHF9H-NXBBB-638P6-6JHCY-88JWH</p>
+
+<h3 id="visual-studio-2019vs2019激活密钥">Visual Studio 2019(VS2019)激活密钥</h3>
+
+<p><strong>Professional:</strong></p>
+
+<p>NYWVH-HT4XC-R2WYW-9Y3CM-X4V3Y</p>
+
+<p><strong>Enterprise:</strong></p>
+
+<p>BF8Y8-GN2QH-T84XB-QVY3B-RC4DF</p>
+
+:ET
