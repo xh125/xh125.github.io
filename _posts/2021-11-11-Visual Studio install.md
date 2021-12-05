@@ -12,8 +12,8 @@ tags:
 
 ## 下载  
 
-[**Visual Studio 2020下载地址**](https://visualstudio.microsoft.com/zh-hans/vs/)  
-  目前Visual Studio 2020不能与Intel(R) Parallel Studio XE 2020和[Intel OneApi][2]兼容，
+[**Visual Studio 2022下载地址**](https://visualstudio.microsoft.com/zh-hans/vs/)  
+  目前Visual Studio 2022不能与Intel(R) Parallel Studio XE 2020和[Intel OneApi][2]兼容，
   如需要使用Intel Fortran Compiler和MKL库，需要使用Visual Studio 2019  
   
 [**Lists of the release details for Visual Studio 2019**][1]  
