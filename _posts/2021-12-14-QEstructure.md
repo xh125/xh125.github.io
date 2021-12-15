@@ -192,10 +192,7 @@ P_{13}\vec{a}+P_{23}\vec{b}+P_{33}\vec{c}
 知道了矩阵$\mathbf{P}$和逆矩阵$\mathbf{Q}=\mathbf{P}^{-1}$，就可以进行CELL之间的变换，常见的晶胞转换为原胞的变换矩阵由[表2](#tab2)给出，反之交换$\mathbf{P}$和$\mathbf{Q}$得到。注意这里的矩阵选取并不是唯一的，这里选择的原胞基矢的原点和晶胞基矢的原点是重合的，即没有平移。
 
 <span id = "tab2"><center><b>表2</b> 常见单元变换矩阵</center></span>
-
-<p align="center">
-    <img src="../../../../../images/trans_cell.png" width="830" />
-</p>
+![trans_cell](https://xh125.github.io/images/post/trans_cell.png)
 
 对于菱方布拉伐格子，见[注2](#note2)的7种空间群，cif生成的是六方的晶胞，体积是菱方的3倍，原胞计算用（ibrav=5，同时定义celldm(1)和celldm(4)），用ibrav=0时也存着晶胞转原胞的问题，转换矩阵如下，参见[注1](#note1) ：
 $$
@@ -237,24 +234,17 @@ $$
 以底心单斜碳的同素异形体为例[4]，用[TransCell](https://github.com/yyyu200/SlabMaker)变换CELL和原子坐标，并用VESTA验证。
 
 先下载[cif文件](../../../../../images/A_mC16_12_4i.cif)，用VESTA打开，画出晶胞如下：
-<p align="center">
-    <img src="../../../../../images/MCarbon-UC.png"  />
-</p>
+![MCarbon](https://xh125.github.io/images/post/MCarbon-UC.png)
 
 输入转换矩阵：
-<p align="center">
-    <img src="../../../../../images/MCarbon-UC-1.png" />
-</p>
+![MCarbon](https://xh125.github.io/images/post/MCarbon-UC-1.png)
 
 得到原胞：
-<p align="center">
-    <img src="../../../../../images/MCarbon-PC.png"  />
-</p>
+![MCarbon](https://xh125.github.io/images/post/MCarbon-PC.png)
 
 原胞和晶胞的比较（见[aflow](http://aflowlib.org/CrystalDatabase/A_mC16_12_4i.html)）：
-<p align="center">
-    <img src="../../../../../images/MCarbon-U_P.png" />
-</p>
+![MCarbon](https://xh125.github.io/images/post/MCarbon-U_P.png)
+
 
 ## 分数坐标和直角坐标的相互转换
 
@@ -266,9 +256,8 @@ $$
 
 ### 平板（slab）模型的建立
 
-<p align="center">
-    <img src="../../../../../images/surface-construction.png" width="300" />
-</p>
+![slab](https://xh125.github.io/images/post/surface-construction.png)  
+
 
 对于固体表面，平面波计算要首先建立平板模型，选取垂直晶面方向足够厚的平板，并且加入足够厚的真空，以消除表面之间的作用，实现表面性质的计算。对于异质结构，如超晶格，需要建立repeated-slab模型，二维材料异质结，如双层石墨烯“魔角”，模型建立也会遇到有共性的问题。
 
@@ -310,10 +299,8 @@ $$\vec{X^{\prime}}=(x^{\prime}_{i1},x^{\prime}_{i2},x^{\prime}_{i3})^T=(x_{i1},x
 下面以$\alpha-Al_{2}O_{3}$的(110)面为例，用SlabMaker建slab模型，并用VESTA画图。
 
 从COD下载$\alpha-Al_{2}O_{3}$的[cif文件](http://www.crystallography.net/cod/1000017.cif)，用VESTA打开，材料具有菱方的原胞，密勒指数是相对晶胞定义的，画出六方的晶胞如下：
+![alo-hex](https://xh125.github.io/images/post/alo-hex.png)
 
-<p align="center">
-    <img src="../../../../../images/alo-hex.png" width="500" />
-</p>
 
 用VESTA导出POSCAR格式文件，命名为Al2O3.vasp。
 
@@ -346,16 +333,10 @@ reduced slab cell area:  35.694197603259965  Ang^2.
 ```
 
 其中变换P1是得到一个预选的cell，对预选cell加入真空，转动c沿着垂直表面方向（变换矩阵见前文），变换P2是将cell约化到具有110面内最小二维周期单元的slab，面内基矢量的夹角是84.16°，结果参考见[6]。
-
-<p align="center">
-    <img src="../../../../../images/alo-slabunit.png" width="500" />
-</p>
+![alo](https://xh125.github.io/images/post/alo-slabunit.png)
 
 build.py输出了slab的POSCAR（真空厚度和层数在源程序中设置），见运行目录的[tmp/slab.vasp](../../../../../images/slab-alo110.vasp)。最终slab如图。
-
-<p align="center">
-    <img src="../../../../../images/alo-slab.png" width="500" />
-</p>
+![alo](https://xh125.github.io/images/post/alo-slab.png)
 
 以上是slab的c方向恰好具有周期性的情况，另外一种则当cell的c方向沿着表面法向时，表面法向不具有周期性（或具有极长的周期性），不同于文献[5]的做法，这里在加入真空之后，将cell的c投影到z方向，由于面内的周期性边界条件，这么做是可行的。下面以$\alpha-Al_{2}O_{3}$的(104)面为例（这与文献[5]的$\alpha-Fe_{2}O_{3}$是同一种结构）。
 
@@ -369,10 +350,7 @@ slab.print_poscar("./slab.vasp")
 ```
 
 得到[slab.vasp](https://github.com/yyyu200/DFTbook/blob/master/img/alo104.vasp)，用VESTA画图如下。
-
-<p align="center">
-    <img src="../../../../../images/alo-slab104.png" width="500" />
-</p>
+![alo](https://xh125.github.io/images/post/alo-slab104.png)
 
 可以看到与文献[5]Fig.1(d)的面内是等价的，cell的c沿垂直表面方向有利于如功函数等的计算。建好slab之后，可以根据需要删掉部分原子以得到特定的截止表面和厚度。
 
