@@ -50,13 +50,13 @@ tags:
 
 QE输入文件的总体结构如下图，输入文件的前半部分满足Fortran语言的Namelist语法。与结构有关的包括```SYSTEM```部分的```ibrav,celldm,nat,ntyp```以及```ATOMIC_POSITIONS```和```CELL_PARAMETERS```共三个部分。
 
-![cell_parameters](../../../../../images/post/structure_input.png)
+![cell_parameters](https://xh125.github.io/images/post/structure_input.png)
 
 QE计算的结构都是在三维空间中周期性重复的，所以需要定义周期性的单元（这里称作CELL，单元）,以及周期性单元内的原子坐标。在QE中用三个矢量$\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}$定义CELL。CELL的定义本身不依赖于**空间直角坐标系**（**笛卡尔坐标系**）的选择，只需要定义三个基矢量的长度和三个夹角，但是为了计算，需要确定一个空间直角坐标系，以写出各个矢量的笛卡尔坐标，
 
 $$\vec{v_{1}}=(v_{11},v_{12},v_{13}),\vec{v_{2}}=(v_{21},v_{22},v_{23}),\vec{v_{3}}=(v_{31},v_{32},v_{33})$$
 
-这里空间直角坐标系的选取，对于```ibrav```$\neq$0是在QE程序内部进行的，用户不需要设置；对于```ibrav=0```是用户通过写出CELL_PARAMETERS而确定的。
+这里空间直角坐标系的选取，对于```ibrav```$\neq$ 0是在QE程序内部进行的，用户不需要设置；对于```ibrav=0```是用户通过写出CELL_PARAMETERS而确定的。
 
 设置```ibrav=0```，这时需要在输入文件中写入```CELL_PARAMETERS```，即CELL的基矢量$\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}$，基矢量是空间直角坐标系中的直角坐标（笛卡尔坐标），空间直角坐标系的选法有一定的任意性，用户可以根据习惯选择，比如，将原点放在某个原子上，将z轴定义为布拉伐格子的基矢c方向，这里坐标系的不同选择，对应的原子坐标会有一个单位正交矩阵所定义的变换，但是建议是右手系。坐标的单位有三种选择：alat，bohr，angstrom，其中，alat是由```celldm(1)```或```A```定义的晶格常数单位。设置```ibrav=0```并写出```CELL_PARAMETERS```这种方法适合用来设置超胞、slab模型等，也可以用来建原胞，是一种通用性较好的方法，并且与其他结构文件（cif，VESTA，POSCAR等）格式转换较为方便，也更方便进行后续计算。
 
@@ -65,10 +65,7 @@ $$\vec{v_{1}}=(v_{11},v_{12},v_{13}),\vec{v_{2}}=(v_{21},v_{22},v_{23}),\vec{v_{
 在QE中还可以直接给出晶格的基矢长度和夹角```A, B, C, cosAB, cosAC, cosBC```，单位是Angstrom，和celldm一样，唯一地确定了CELL，定义了$\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}$，这时的空间直角坐标系是QE内部定义的，也由表1（基于qe-6.0，请对照具体使用的版本，可能有出入）给出。
 
 <span id = "tab1"><center><b>表1</b> 14种布拉伐格子的设置及对应的单元基矢量</center></span>
-
-<p align="center">
-    <img src="../../../../../img/ibrav.png" width="830" />
-</p>
+![表1](https://xh125.github.io/images/post/ibrav.png)
 
 在定义了CELL之后，用```ATOMIC_POSITIONS```定义CELL中原子的坐标。```ATOMIC_POSITIONS```的单位有以下可供选择\{ alat \| bohr \| angstrom \| crystal \| crystal_sg \}，其中，crystal是指以$\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}$为基矢量的分数坐标，$\vec{X}=(x_{1},x_{2},x_{3})^{T}=x_{1}\vec{v_{1}}+x_{2}\vec{v_{2}}+x_{3}\vec{v_{3}}$。如果选择\{ alat \| bohr \| angstrom\}，则原子坐标是空间直角坐标，由于结构的周期性，这里的空间直角坐标系的选择是任意的，但是习惯上还是与CELL的空间直角坐标系保持一致，坐标值在CELL_PARAMTERS所定义的平行六面体内部。\{crystal_sg\}是在指定了空间群之后，定义对称性不等价的原子位置，与```space_group, uniqueb, origin_choice, rhombohedral```配套使用。
 
