@@ -150,30 +150,33 @@ QE结构设置的种类总结如下，除了通过空间群设置以外，单元
     </tr>
 </table>
 
-注：自6.4.1版本，[官方](https://gitlab.com/QEF/q-e/wikis/Releases/Quantum-Espresso-6.4.1-Release-Notes)不推荐`celldm(1)`=1.88972613（任何<2的值）的做法，这里也修正为`celldm(1)`设置为晶格常数，或用`ibrav`$\neq$0。
+注：自6.4.1版本，[官方](https://gitlab.com/QEF/q-e/wikis/Releases/Quantum-Espresso-6.4.1-Release-Notes)不推荐`celldm(1)`=1.88972613（任何<2的值）的做法，这里也修正为`celldm(1)`设置为晶格常数，或用`ibrav`$\neq$ 0。
 
 注2：关于alat，alat是qe内部定义的量，以Bohr为单位，具有晶格常数的意义，在pw.x的输出接近开头处有` lattice parameter (alat)  = x.xxxx  a.u.`。(1)当ibrav=0，且CELL_PARAMETER{bohr或angstrom}时，alat是CELL_PARAMETER第一行矢量的长度，此时不允许写celldm，否则会和CELL_PARAMETER冲突；(2)当ibrav=0，且CELL_PARAMETER{alat}时， alat=`celldm(1)`或`A`，这里`celldm(1)`或`A`取值有一定的任意性，这里建议取为第一个基矢量的长度，即具有晶格常数的意义；(3)对于`ibrav`$\neq$0，alat=`celldm(1)`或`A`。对于输入，alat可能的影响是使用CELL_PARAMETER {alat}，这时cell参数是以alat为单位的。对于输出，pw.x有些输出量用到了alat为单位，这里就不再列举，根据情况判断。
 
 ## 晶胞和原胞的相互转换
 
-原胞是保持平移对称性的最小单元，所以，在计算能带、声子色散时，研究对象是原胞（声子的有限位移方法需要超胞，但是，这时的超胞是一个辅助系统，色散仍然是针对原胞画的）。用比原胞更大的单元计算能带会造成band folding现象，即能带折叠，相当于布里渊区变小了，布里渊区的形状也可能发生了变化，从超胞到原胞的能带可以通过(band unfolding)[https://www.ifm.liu.se/theomod/compphys/band-unfolding]还原到原胞的能带。
+原胞是保持平移对称性的最小单元，所以，在计算能带、声子色散时，研究对象是原胞（声子的有限位移方法需要超胞，但是，这时的超胞是一个辅助系统，色散仍然是针对原胞画的）。用比原胞更大的单元计算能带会造成band folding现象，即能带折叠，相当于布里渊区变小了，布里渊区的形状也可能发生了变化，从超胞到原胞的能带可以通过[band unfolding](https://www.ifm.liu.se/theomod/compphys/band-unfolding)还原到原胞的能带。
 
 文献通常按照以下约定：晶胞是定义晶面、晶向、超胞的参照，而不是原胞或其他单元。
 
-首先，定义一般的周期性单元CELL的变换。按照文献[1]的约定，将（分数）坐标写为列矢量，基矢量$\vec{a},\vec{b},\vec{c}$也各为列矢量。点X在基矢$O,\vec{a},\vec{b},\vec{c}$（$O$为原点）下的坐标$(x_{1},x_{2},x_{3})^{T}$定义为
+首先，定义一般的周期性单元CELL的变换。按照文献[1]的约定，将（分数）坐标写为列矢量，基矢量$\vec{a},\vec{b},\vec{c}$ 也各为列矢量。点X在基矢$O,\vec{a},\vec{b},\vec{c}$（$O$为原点）下的坐标$(x_{1},x_{2},x_{3})^{T}$定义为  
+
 $$\vec{X}=x_{1}\vec{a}+x_{2}\vec{b}+x_{3}\vec{c}
 =(\vec{a},\vec{b},\vec{c})\quad
 \begin{pmatrix}
 x_{1} \\x_{2} \\x_{3}
 \end{pmatrix}
-\quad$$。
+\quad$$  
 
 考虑晶格静止不动，选择不同的基矢，即选取不同的CELL，同一个点X对新的基矢$O',\vec{a'},\vec{b'},\vec{c'}$有坐标
-$$\vec{X'}=(x'_{1},x'_{2},x'_{3})^{T}=x'_{1}\vec{a'}+x'_{2}\vec{b'}+x'_{3}\vec{c'}$$。下面给出有撇号和无撇号的基矢选择下基矢和坐标的变换关系。
+$$\vec{X'}=(x'_{1},x'_{2},x'_{3})^{T}=x'_{1}\vec{a'}+x'_{2}\vec{b'}+x'_{3}\vec{c'}$$
+下面给出有撇号和无撇号的基矢选择下基矢和坐标的变换关系。
 
 周期性单元CELL的变换是一种特殊的仿射变换（数学上一般的仿射变换形成的新单元并不保证具有晶格周期性），可以分解为线性部分和平移两个部分。
 
-线性部分包括基矢方向和长度的改变，由一个矩阵$\mathbf{P}$表示。$$(\vec{a'},\vec{b'},\vec{c'})=(\vec{a},\vec{b},\vec{c})\mathbf{P}=(\vec{a},\vec{b},\vec{c})\quad
+线性部分包括基矢方向和长度的改变，由一个矩阵$\mathbf{P}$表示。
+$$(\vec{a'},\vec{b'},\vec{c'})=(\vec{a},\vec{b},\vec{c})\mathbf{P}=(\vec{a},\vec{b},\vec{c})\quad
 \begin{pmatrix}
 P_{11}& P_{12} &P_{13} \\
 P_{21}& P_{22} &P_{23} \\
@@ -183,14 +186,14 @@ P_{31}& P_{32} &P_{33} \\
 =(P_{11}\vec{a}+P_{21}\vec{b}+P_{31}\vec{c},
 P_{12}\vec{a}+P_{22}\vec{b}+P_{32}\vec{c},
 P_{13}\vec{a}+P_{23}\vec{b}+P_{33}\vec{c}
-) $$。
+) $$
 
 知道了矩阵$\mathbf{P}$和逆矩阵$\mathbf{Q}=\mathbf{P}^{-1}$，就可以进行CELL之间的变换，常见的晶胞转换为原胞的变换矩阵由[表2](#tab2)给出，反之交换$\mathbf{P}$和$\mathbf{Q}$得到。注意这里的矩阵选取并不是唯一的，这里选择的原胞基矢的原点和晶胞基矢的原点是重合的，即没有平移。
 
 <span id = "tab2"><center><b>表2</b> 常见单元变换矩阵</center></span>
 
 <p align="center">
-    <img src="../../../../../img/trans_cell.png" width="830" />
+    <img src="../../../../../images/trans_cell.png" width="830" />
 </p>
 
 对于菱方布拉伐格子，见[注2](#note2)的7种空间群，cif生成的是六方的晶胞，体积是菱方的3倍，原胞计算用（ibrav=5，同时定义celldm(1)和celldm(4)），用ibrav=0时也存着晶胞转原胞的问题，转换矩阵如下，参见[注1](#note1) ：
