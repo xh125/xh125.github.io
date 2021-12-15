@@ -118,9 +118,7 @@ C             1.2639655349        5.0000000000        5.0000000000    1   0   0
 End final coordinates
 ```
 
-
-
-### 采用 $ibrav \neq 0$ 以及A, B, C, cosAB, cosAC, cosBC（或者celldm(i), i=1,6）的结构进行结构优化  
+### 采用 $ibrav \neq 0$ 以及A, B, C, cosAB, cosAC, cosBC的结构进行结构优化  
 
 ```fortran
 &CONTROL
@@ -200,6 +198,89 @@ C             5.0000000000        5.0000000000        0.0000000000    0   0   0
 C             5.0000000000        5.0000000000        1.2640744811    0   0   1
 End final coordinates
 ```
+
+### 采用 $ibrav \neq 0$ 以及celldm(i), i=1,6的结构进行结构优化  
+
+```fortran
+&CONTROL
+    calculation   = "vc-relax"  
+    restart_mode  = "from_scratch"
+    prefix        = "carbyne"
+    outdir        = "./outdir/"
+    pseudo_dir    = "./pseudo/"
+    verbosity     = "high"
+    tprnfor       = .true.  
+    tstress       = .true.
+    etot_conv_thr =  1.0d-6
+    forc_conv_thr =  1.0d-5
+/
+
+&SYSTEM
+    ibrav       = 6
+    celldm(1)   = 18.89726125
+    celldm(3)   = 0.256552429
+    nat         = 2
+    ntyp        = 1
+    nbnd        = 22
+    occupations = 'fixed'
+    ecutwfc     =  50
+    ecutrho     =  400
+/
+
+&ELECTRONS
+    conv_thr         =  1.000e-9
+    electron_maxstep =  200
+    mixing_beta      =  0.7
+    startingpot      = "atomic"
+    startingwfc      = "atomic+random"
+/
+
+&IONS
+    ion_dynamics = "bfgs"
+/
+
+&CELL
+    cell_dofree    = "z"
+    cell_dynamics  = "bfgs"
+    press_conv_thr =  0.01
+/
+
+K_POINTS {automatic}
+ 1 1 100  0  0  0 
+
+ATOMIC_SPECIES
+C      12.01070  C.pbe-n-kjpaw_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS (angstrom)
+C             5.0000000000       5.0000000000       0.0000000000    0   0   0
+C             5.0000000000       5.0000000000       1.2640800000    0   0   1
+```  
+
+计算结束后，运行
+
+```bash
+awk  '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out
+```
+
+得到以下输出（或在输出文件中可以找到）（vc-relax的结果）
+
+```bash
+Begin final coordinates
+     new unit-cell volume =   1731.29310 a.u.^3 (   256.55117 Ang^3 )
+     density =      0.15548 g/cm^3
+
+CELL_PARAMETERS (alat= 18.89726125)
+   1.000000000   0.000000000   0.000000000
+   0.000000000   1.000000000   0.000000000
+   0.000000000   0.000000000   0.256551169
+
+ATOMIC_POSITIONS (angstrom)
+C             5.0000000000        5.0000000000        0.0000000000    0   0   0
+C             5.0000000000        5.0000000000        1.2640744811    0   0   1
+End final coordinates
+```
+
+#### Notes  
 
 如果设置了`cell_dofree    = "ibrav"`,优化过程保持布拉维格子的种类不变，vc-relax.out中会有优化后的优化后的celldm,见：
 
