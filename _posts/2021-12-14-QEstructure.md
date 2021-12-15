@@ -50,7 +50,6 @@ tags:
 
 QE输入文件的总体结构如下图，输入文件的前半部分满足Fortran语言的Namelist语法。与结构有关的包括```SYSTEM```部分的```ibrav,celldm,nat,ntyp```以及```ATOMIC_POSITIONS```和```CELL_PARAMETERS```共三个部分。
 
-![cell_parameters](https://xh125.github.io/images/post/structure_input.png)
 ![cell_parameters](../../../../../images/post/structure_input.png)
 
 QE计算的结构都是在三维空间中周期性重复的，所以需要定义周期性的单元（这里称作CELL，单元）,以及周期性单元内的原子坐标。在QE中用三个矢量$\vec{v_{1}},\vec{v_{2}},\vec{v_{3}}$定义CELL。CELL的定义本身不依赖于**空间直角坐标系**（**笛卡尔坐标系**）的选择，只需要定义三个基矢量的长度和三个夹角，但是为了计算，需要确定一个空间直角坐标系，以写出各个矢量的笛卡尔坐标，
