@@ -302,5 +302,3 @@ New lattice vectors in NEW alat (for information only):
     -0.50000000    -0.50000000     0.98622089
 
 ```
-
-
