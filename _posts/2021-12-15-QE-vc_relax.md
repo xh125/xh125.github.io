@@ -104,23 +104,23 @@ awk  '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out
 
 ```bash
 Begin final coordinates
-     new unit-cell volume =   1731.28466 a.u.^3 (   256.54992 Ang^3 )
+     new unit-cell volume =   1731.30152 a.u.^3 (   256.55242 Ang^3 )
      density =      0.15548 g/cm^3
 
 CELL_PARAMETERS (angstrom)
-   2.565499186   0.000000000   0.000000000
+   2.565524159   0.000000000   0.000000000
    0.000000000  10.000000000   0.000000000
    0.000000000   0.000000000  10.000000000
 
 ATOMIC_POSITIONS (angstrom)
-C             0.0003197443        5.0000000000        5.0000000000
-C             1.2644040463        5.0000000000        5.0000000000
+C             0.0000000000        5.0000000000        5.0000000000    0   0   0
+C             1.2639655349        5.0000000000        5.0000000000    1   0   0
 End final coordinates
 ```
 
 
 
-### 采用 $ibrav \neq 0$的结构进行结构优化  
+### 采用 $ibrav \neq 0$ 以及A, B, C, cosAB, cosAC, cosBC（或者celldm(i), i=1,6）的结构进行结构优化  
 
 ```fortran
 &CONTROL
@@ -176,3 +176,50 @@ ATOMIC_POSITIONS (angstrom)
 C             5.0000000000       5.0000000000       0.0000000000    0   0   0
 C             5.0000000000       5.0000000000       1.2640800000    0   0   1
 ```  
+
+计算结束后，运行
+
+```bash
+awk  '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out
+```
+
+得到以下输出（或在输出文件中可以找到）（vc-relax的结果）
+
+```bash
+Begin final coordinates
+     new unit-cell volume =   1731.30161 a.u.^3 (   256.55243 Ang^3 )
+     density =      0.15548 g/cm^3
+
+CELL_PARAMETERS (alat= 18.89726125)
+   1.000000000   0.000000000   0.000000000
+   0.000000000   1.000000000   0.000000000
+   0.000000000   0.000000000   0.256552429
+
+ATOMIC_POSITIONS (angstrom)
+C             5.0000000000        5.0000000000        0.0000000000    0   0   0
+C             5.0000000000        5.0000000000        1.2639655691    0   0   1
+End final coordinates
+```
+
+如果设置了`cell_dofree    = "ibrav"`,优化过程保持布拉维格子的种类不变，vc-relax.out中会有优化后的优化后的celldm,见：
+
+```fortran
+ibrav =      7
+ celldm(1) =     10.37600462
+ celldm(3) =      1.97244178
+Input lattice vectors:
+     0.49999668    -0.49999668     0.98621435
+     0.49999668     0.49999668     0.98621435
+    -0.49999668    -0.49999668     0.98621435
+New lattice vectors in INITIAL alat:
+     0.49999668    -0.49999668     0.98621435
+     0.49999668     0.49999668     0.98621435
+    -0.49999668    -0.49999668     0.98621435
+New lattice vectors in NEW alat (for information only):
+     0.50000000    -0.50000000     0.98622089
+     0.50000000     0.50000000     0.98622089
+    -0.50000000    -0.50000000     0.98622089
+
+```
+
+
