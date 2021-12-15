@@ -91,7 +91,7 @@ grep ! vc-relax.out
 查看优化过程中压力张量大小
 
 ```bash
-grep -A 10 " Total force =" vc-relax.out 
+grep -A 12 " Total force =" vc-relax.out 
 ```
 
 计算结束后，运行
