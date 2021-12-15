@@ -9,7 +9,7 @@ tags:
     - 建模
 ---
 
-## QUANTUM ESPRESSO的建模教程  
+## [QUANTUM ESPRESSO的建模教程](https://yyyu200.github.io/DFTbook/blogs/2019/04/07/TransCell/)  
 
 ## 晶体结构要点
 
