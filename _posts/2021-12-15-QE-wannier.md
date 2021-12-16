@@ -93,3 +93,25 @@ tags:
 
     - 运行wannier90.x -pp seedname
 
+4. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
+starting guess (written in the seedname.mmn and seedname.amn files).  
+
+    `pw2wannier90.x < pw2wan.in > pw2wan.out`
+
+    输入文件`pw2wan.in`如下：  
+
+    ```fortran
+    &inputpp
+    outdir = './outdir'
+    prefix = 'carbyne'
+    seedname = 'carbyne'
+    spin_component = 'none'
+    write_mmn = .true.
+    write_amn = .true.
+    write_unk = .true.
+    /
+    ```  
+
+5. Run wannier90 to compute the MLWFs.  
+   `wannier90.x seedname`  
+
