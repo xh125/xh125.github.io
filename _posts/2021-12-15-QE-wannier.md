@@ -76,6 +76,7 @@ tags:
     
     !Job Control
     exclude_bands : 1-2
+    translate_home_cell = .true.
     !restart =
     
     !disentanglement
