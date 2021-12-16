@@ -120,9 +120,10 @@ tags:
     !end plot
     ```
 
-    
+    - 运行mpirun -np $NP wannier90.x -pp seedname
 
-    - 运行wannier90.x -pp seedname
+    **NOTE:** 其结果中包含有初始指定的projections函数(以alat为单位)：
+    ! convert wannier center in cartesian coordinates (in unit of alat)
 
 4. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
 starting guess (written in the seedname.mmn and seedname.amn files).  
@@ -186,3 +187,5 @@ starting guess (written in the seedname.mmn and seedname.amn files).
 
    ```  
 
+计算得到的wannier插值的能带图如下：  
+![Wannier-band](https://xh125.github.io/images/post/wannier-band.png)
