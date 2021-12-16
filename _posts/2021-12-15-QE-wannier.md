@@ -34,6 +34,7 @@ tags:
     - 构建输入文件carbyne.win  
 
       ```fortran
+      ! System
       begin unit_cell_cart
       Ang
        10.000000   0.000000   0.000000
@@ -94,7 +95,32 @@ tags:
     conv_tol = 1.0E-10
     conv_window     = 10
     guiding_centres = .true.
+    
+    !Post-Processing
+    !restart = plot
+    wannier_plot = .true.
+    wannier_plot_format = xcrysden
+    wannier_plot_supercell = 1 1 3
+
+    bands_plot = .true.
+    bands_num_points = 100
+    bands_plot_format = gnuplot
+    begin kpoint_path
+        M 0.0 0.0 -0.5 G 0.0 0.0 0.0
+        G 0.0 0.0  0.0 M 0.0 0.0 0.5
+    end kpoint_path
+
+    fermi_surface_plot = .true.
+    fermi_surface_num_points = 100
+    fermi_energy = -5.262
+
+    write_hr=.true.
+    write_rmn=.true.
+    write_tb=.true.
+    !end plot
     ```
+
+    
 
     - 运行wannier90.x -pp seedname
 
