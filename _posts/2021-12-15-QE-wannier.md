@@ -112,6 +112,46 @@ starting guess (written in the seedname.mmn and seedname.amn files).
     /
     ```  
 
+    要在后续wannier90.x使用plot画MLWF函数，需要设置`write_unk=.true.`
+
+    **NOTE**可能会遇到报错
+
+    ```bash
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     Error in routine  fft_type_set (6):
+    there are processes with no planes. Use pencil decomposition (-pd .true.)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    ```
+
+    需要使用`mpirun -np $NP pw2wannier90.x <pw2wan.in> pw2wan.out`并行计算，并且$NP太大时会导致部分核分配不到平面波，需要适当减小`\$NP`的值
+
+
 5. Run wannier90 to compute the MLWFs.  
-   `wannier90.x seedname`  
+   `mpirun -np 28 wannier90.x seedname`  
+   并在seedname.win中添加plot部分  
+
+   ```fortran
+   !restart = plot
+   wannier_plot = .true.
+   wannier_plot_format = xcrysden
+   wannier_plot_supercell = 1 1 3
+   
+   bands_plot = .true.
+   bands_num_points = 100
+   bands_plot_format = gnuplot
+   begin kpoint_path
+           M 0.0 0.0 -0.5 G 0.0 0.0 0.0
+           G 0.0 0.0  0.0 M 0.0 0.0 0.5
+   end kpoint_path
+   
+   fermi_surface_plot = .true.
+   fermi_surface_num_points = 100
+   fermi_energy = -5.262
+   
+   write_hr=.true.
+   write_rmn=.true.
+   write_tb=.true.
+   !end plot
+
+   ```  
 
