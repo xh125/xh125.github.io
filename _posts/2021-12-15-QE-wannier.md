@@ -67,7 +67,11 @@ tags:
     
     !Projection
     begin projections
-    C : px;py
+    !! Atom-centred px,py orbitals
+    !C : px;py
+    !! Bond-centred px,py-orbitals
+    f=0.5,0.5,0.25:px;py
+    f=0.5,0.5,0.75:px;py
     end projections
     
     !Job Control
