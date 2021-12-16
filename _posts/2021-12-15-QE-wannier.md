@@ -194,4 +194,4 @@ MLWF如下：
 ![MLWF-1](https://xh125.github.io/images/post/carbyne_00001.png)  
 ![MLWF-2](https://xh125.github.io/images/post/carbyne_00002.png)  
 ![MLWF-3](https://xh125.github.io/images/post/carbyne_00003.png)  
-![MLWF-4](https://xh125.github.io/images/post/carbyne_00004.png)
+![MLWF-4](https://xh125.github.io/images/post/carbyne_00004.png)  
