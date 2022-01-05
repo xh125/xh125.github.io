@@ -14,7 +14,7 @@ tags:
 1. 安装好intel编译器 module load intel/2019  (注意，使用compiler/intel/2019.0.045 编译不能通过)
 2. tar -zxvf qe-6.8-ReleasePack.tgz
 3. cd qe-6.8
-4. ./configure  MPIF90=mpiifort CC=mpiicc --enable-openmp --enable-parallel --with-scalapack=intel
+4. ./configure MPIF90=mpiifort CC=mpiicc --enable-openmp --enable-parallel --with-scalapack=intel
 
 5. make -j20 all  
     - (1)报错：
