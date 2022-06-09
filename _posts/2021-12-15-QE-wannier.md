@@ -50,7 +50,8 @@ tags:
       
       ```
 
-    - 添加k-points信息  
+    - 添加k-points信息 
+    *note:* dis_win_max的值要根据fatband的结果进行设置，不能随意设置的无限高或者不设置，这样会导致得到的wannier函数很难局域化。  
 
      ```bash
      echo "mp_grid = 1 1 200">>${seedname}.win
@@ -120,7 +121,7 @@ tags:
     !end plot
     ```
 
-    - 运行mpirun -np $NP wannier90.x -pp seedname
+    - 运行wannier90.x -pp seedname
 
     **NOTE:** 其结果中包含有初始指定的projections函数(以alat为单位)：
     ! convert wannier center in cartesian coordinates (in unit of alat)
