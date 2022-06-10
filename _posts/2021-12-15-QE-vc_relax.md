@@ -13,7 +13,8 @@ tags:
 
 vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。  
 
-### 采用`ibrav=0`设置结构的 vc-relax输入文件  
+### 采用`ibrav=0`设置结构的 vc-relax输入文件 
+*note:*采用分数坐标时，坐标给到小数点后10位比较合适，在小数点位数不够时，容易在phonon计算中，对于q点对称性的计算会有问题。 
 
 ```fortran
 &CONTROL
@@ -260,6 +261,7 @@ C             5.0000000000       5.0000000000       1.2640800000    0   0   1
 
 ```bash
 awk  '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out
+grep -B 40 "Begin final coordinates" vc-relax.out
 ```
 
 得到以下输出（或在输出文件中可以找到）（vc-relax的结果）
@@ -283,6 +285,9 @@ End final coordinates
 #### Notes  
 
 如果设置了`cell_dofree    = "ibrav"`,优化过程保持布拉维格子的种类不变，vc-relax.out中会有优化后的优化后的celldm,见：
+```bash
+grep -B 40 "Begin final coordinates" vc-relax.out
+```
 
 ```fortran
 ibrav =      7
