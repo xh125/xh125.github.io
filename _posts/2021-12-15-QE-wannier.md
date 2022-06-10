@@ -51,7 +51,7 @@ tags:
       ```
 
     - 添加k-points信息 
-    *note:* dis_win_max的值要根据fatband的结果进行设置，不能随意设置的无限高或者不设置，这样会导致得到的wannier函数很难局域化。Wannier函数局域化的条件要求，(1)wannier函数spread较小，一般每一个wannier函数小于1.0(Ang^2),(2)wannier函数Maximum Im/Re Ratio 的值小，一般应该小于0.001，在wannier函数局域，但是wannier函数虚部比较大时，一般是由于`nbnd`设置的太少或者太多，当太少时，导致不能projector函数没有包含在所计算的能带中，当太多时，能带中包含了其他的具有相类似性质的投影轨道，导致解纠缠时会很慢收敛，并导致得到解纠缠得到的轨道不合适。（3）Wannier函数拟合得到的能带结构能够与DFT计算得到的能带结构相同。
+    *note:* dis_win_max的值要根据fatband的结果进行设置，不能随意设置的无限高或者不设置，这样会导致得到的wannier函数很难局域化。Wannier函数局域化的条件要求，(1)wannier函数spread较小，一般每一个wannier函数小于1.0(Ang^2),(2)wannier函数Maximum Im/Re Ratio 的值小，一般应该小于0.001，在wannier函数局域，但是wannier函数虚部比较大时，一般是由于`nbnd`设置的太少或者太多，当太少时，导致不能projector函数没有包含在所计算的能带中，当太多时，能带中包含了其他的具有相类似性质的投影轨道，导致解纠缠时会很慢收敛，并导致得到解纠缠得到的轨道不合适。在graphene中就是由于nbnd设置的太大导致的这个问题，设置为56时可以得到局域实数的WFs。（3）Wannier函数拟合得到的能带结构能够与DFT计算得到的能带结构相同。
     在画wannier函数时，最好选择cube格式进行输出，采用xcrysden输出的结果采用VESTA画图可能会有问题。
 
      ```bash
