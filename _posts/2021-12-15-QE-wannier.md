@@ -52,6 +52,7 @@ tags:
 
     - 添加k-points信息 
     *note:* dis_win_max的值要根据fatband的结果进行设置，不能随意设置的无限高或者不设置，这样会导致得到的wannier函数很难局域化。Wannier函数局域化的条件要求，(1)wannier函数spread较小，一般每一个wannier函数小于1.0(Ang^2),(2)wannier函数Maximum Im/Re Ratio 的值小，一般应该小于0.001，（3）Wannier函数拟合得到的能带结构能够与DFT计算得到的能带结构相同。
+    在画wannier函数时，最好选择cube格式进行输出，采用xcrysden输出的结果采用VESTA画图可能会有问题。
 
      ```bash
      echo "mp_grid = 1 1 200">>${seedname}.win
@@ -100,8 +101,10 @@ tags:
     !Post-Processing
     !restart = plot
     wannier_plot = .true.
-    wannier_plot_format = xcrysden
+    wannier_plot_format = cube
+    wannier_plot_mode   = crystal
     wannier_plot_supercell = 1 1 3
+    translate_home_cell = .true.
 
     bands_plot = .true.
     bands_num_points = 100
