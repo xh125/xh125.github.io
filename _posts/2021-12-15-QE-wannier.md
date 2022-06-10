@@ -51,7 +51,7 @@ tags:
       ```
 
     - 添加k-points信息 
-    *note:* dis_win_max的值要根据fatband的结果进行设置，不能随意设置的无限高或者不设置，这样会导致得到的wannier函数很难局域化。  
+    *note:* dis_win_max的值要根据fatband的结果进行设置，不能随意设置的无限高或者不设置，这样会导致得到的wannier函数很难局域化。Wannier函数局域化的条件要求，(1)wannier函数spread较小，一般每一个wannier函数小于1.0(Ang^2),(2)wannier函数Maximum Im/Re Ratio 的值小，一般应该小于0.001，（3）Wannier函数拟合得到的能带结构能够与DFT计算得到的能带结构相同。
 
      ```bash
      echo "mp_grid = 1 1 200">>${seedname}.win
