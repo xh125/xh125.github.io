@@ -29,7 +29,7 @@ tags:
    pw.x <nscf.in>nscf.out
    ```
 
-3. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。  
+3. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。该过程比较快，可以在主节点直接运行。  
   
     - 构建输入文件carbyne.win  
 
@@ -130,7 +130,7 @@ tags:
     ! convert wannier center in cartesian coordinates (in unit of alat)
 
 4. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
-starting guess (written in the seedname.mmn and seedname.amn files).  
+starting guess (written in the seedname.mmn and seedname.amn files).  该过程比较慢，最好在计算节点完成。  
 
     `pw2wannier90.x < pw2wan.in > pw2wan.out`
 
