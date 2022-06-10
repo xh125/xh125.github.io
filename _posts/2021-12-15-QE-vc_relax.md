@@ -14,14 +14,14 @@ tags:
 vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。  
 
 ### 采用`ibrav=0`设置结构的 vc-relax输入文件 
-*note:*采用分数坐标时，坐标给到小数点后10位比较合适，在小数点位数不够时，容易在phonon计算中，对于q点对称性的计算会有问题。 
+*note:*采用分数坐标时，坐标给到小数点后10位比较合适，在小数点位数不够时，容易在phonon计算中，对于q点对称性的计算会有问题。 最好将`outdir`统一设置为`outdir='./'`,由于后续epw计算中需要使用`outdir='./'`
 
 ```fortran
 &CONTROL
     calculation   = "vc-relax"  
     restart_mode  = "from_scratch"
     prefix        = "carbyne"
-    outdir        = "./outdir/"
+    outdir        = "./"
     pseudo_dir    = "./pseudo/"
     verbosity     = "high"
     tprnfor       = .true.  
