@@ -11,7 +11,7 @@ tags:
 
 ## QUANTUM ESPRESSO：[vc-relax](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm32)
 
-vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。  
+vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。 对于低维材料体系，在优化时对于k点设置要设置的多一点，否则容易导致结构优化的晶格常数不准确，以及phonon计算中的声子谱不收敛。例如：对于石墨烯，需要设置到18*18*1.
 
 ### 采用`ibrav=0`设置结构的 vc-relax输入文件 
 *note:*采用分数坐标时，坐标给到小数点后10位比较合适，在小数点位数不够时，容易在phonon计算中，对于q点对称性的计算会有问题。 最好将`outdir`统一设置为`outdir='./'`,由于后续epw计算中需要使用`outdir='./'`
