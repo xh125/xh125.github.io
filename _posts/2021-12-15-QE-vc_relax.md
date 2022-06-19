@@ -11,7 +11,7 @@ tags:
 
 ## QUANTUM ESPRESSO：[vc-relax](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm32)
 
-vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。  
+vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。由于后续需要进行phonon计算，最好在relax过程中将相应的计算精度设置的高一些，否则容易在phonon计算中出现虚频，包括`conv_thr`参数。对于二维材料，在计算中可以使用参数[**`assume_isolated='2D'`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm547)  
 
 ### 采用`ibrav=0`设置结构的 vc-relax输入文件 
 *note:*采用分数坐标时，坐标给到小数点后10位比较合适，在小数点位数不够时，容易在phonon计算中，对于q点对称性的计算会有问题。 最好将`outdir`统一设置为`outdir='./'`,由于后续epw计算中需要使用`outdir='./'`
@@ -26,8 +26,8 @@ vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设�
     verbosity     = "high"
     tprnfor       = .true.  
     tstress       = .true.
-    etot_conv_thr =  1.0d-6
-    forc_conv_thr =  1.0d-5
+    etot_conv_thr =  1.0d-8
+    forc_conv_thr =  1.0d-7
 /
 
 &SYSTEM
@@ -41,7 +41,7 @@ vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设�
 /
 
 &ELECTRONS
-    conv_thr         =  1.000e-9
+    conv_thr         =  1.000e-12
     electron_maxstep =  200
     mixing_beta      =  0.7
     startingpot      = "atomic"
