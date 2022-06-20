@@ -11,7 +11,7 @@ tags:
 
 ## QUANTUM ESPRESSO：[vc-relax](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm32)  
 
-vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。由于后续需要进行phonon计算，最好在relax过程中将相应的计算精度设置的高一些，否则容易在phonon计算中出现虚频，包括[**`conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm771)、[**`etot_conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm117)、[**`forc_conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm123)参数。对于二维材料，在计算中可以使用参数[**`assume_isolated='2D'`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm547)  对于低维材料体系，在优化时对于k点设置要设置的多一点，否则容易导致结构优化的晶格常数不准确，以及phonon计算中的声子谱不收敛。例如：对于石墨烯，需要设置到18$\sqrt{x}$18\*1.
+vc-relax:对晶体的晶格常数和原子位置进行结构优化，需要设置[**`cell_dynamics`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1080),[**`press_conv_thr`**](http://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1108)等参数。由于后续需要进行phonon计算，最好在relax过程中将相应的计算精度设置的高一些，否则容易在phonon计算中出现虚频，包括[**`conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm771)、[**`etot_conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm117)、[**`forc_conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm123)参数。对于二维材料，在计算中可以使用参数[**`assume_isolated='2D'`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm547)  对于低维材料体系，在优化时对于k点设置要设置的多一点，否则容易导致结构优化的晶格常数不准确，以及phonon计算中的声子谱不收敛。例如：对于石墨烯，需要设置到36\*36\*1.
 
 
 ### 采用`ibrav=0`设置结构的 vc-relax输入文件 
@@ -285,7 +285,7 @@ End final coordinates
 
 #### Notes  
 
-如果设置了`cell_dofree    = "ibrav"`,优化过程保持布拉维格子的种类不变，vc-relax.out中会有优化后的优化后的celldm,见：
+如果设置了`cell_dofree    = "ibrav"`,优化过程保持布拉维格子的种类不变，vc-relax.out中会有优化后的优化后的celldm,见：  
 ```bash
 grep -B 40 "Begin final coordinates" vc-relax.out
 ```
