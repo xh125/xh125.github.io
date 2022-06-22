@@ -215,4 +215,4 @@ grep -e 'charge density cutoff' -e ! scf.$erho.out | \
 done
 ```
 
-![etot-vs-ecutrho](https://xh125.github.io/images/post/etot-vs-rho.png)
+![etot-vs-ecutrho](https://xh125.github.io/images/post/etot-vs-rho.png)  
