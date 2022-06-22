@@ -314,9 +314,9 @@ done
 
 ![etot-vs-nkpoint](https://xh125.github.io/images/post/etot-vs-nkpoint.png)  
 
-使用36×36×1，或者更密的k点采样。
+使用36×36×1，或者更密的k点采样。  
 
-### (4) 使用不同的晶格常数进行scf计算，采用EOS方程拟合得到晶格常数。
+### (4) 使用不同的晶格常数进行scf计算，采用EOS方程拟合得到晶格常数  
 
 ```bash
 #!/bin/bash
