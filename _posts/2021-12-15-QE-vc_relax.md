@@ -84,6 +84,12 @@ C             1.2640800000       5.0000000000       5.0000000000    1   0   0
 grep " Total force =" vc-relax.out
 ```
 
+查看优化过程中各原子的受力情况：
+
+```bash
+grep -A 20 "Forces acting on atoms (cartesian axes, Ry/au):" vc-relax.out
+```
+
 查看优化过程中能量的变化过程
 
 ```bash
