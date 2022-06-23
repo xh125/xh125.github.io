@@ -2,4 +2,3 @@ Hi，我是谢华，目前是中国科学技术大学物理学在读博士生，
 
 ![largecover](https://xh125.github.io/images/post/jcp.2022.156.issue-15.largecover.jpg)
 
-![USTC-post](https://xh125.github.io/images/post/ustc-post.pdf)
