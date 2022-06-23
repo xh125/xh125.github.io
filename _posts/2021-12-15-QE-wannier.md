@@ -15,7 +15,7 @@ tags:
 进行wannier计算的步骤如下：
 
 1. 用pw.x运行‘scf’计算
-2. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成
+2. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
 
    ```bash
    cp scf.in nscf.in
