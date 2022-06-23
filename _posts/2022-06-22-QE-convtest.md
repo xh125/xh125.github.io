@@ -15,7 +15,7 @@ tags:
 
 ## QUANTUM ESPRESSO参数设置收敛性测试：
 
-`pw.x`的参数在设置的时候，需要进行收敛性测试，以使得计算得到的结果满足收敛性条件，常见的需要进行收敛性测试的参数包括：平面波截断能[**`ecutwfc`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm298)、电荷密度和电势的截断能[**`ecutrho`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm301)(在使用超软赝势和PAW赝势时需要进行收敛性测试)、[**`k-point`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1487)、SCF计算收敛精度[**`conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm771)、对于金属进行布里渊区积分时的展宽系数[**`degauss`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm379)的收敛性测试。对于收敛性测试，使得能量变化值满足1meV/atom的值即可。使用状态方程（Equation of State）拟合得到晶格常数。
+`pw.x`的参数在设置的时候，需要进行收敛性测试，以使得计算得到的结果满足收敛性条件,在满足计算精度的情况下尽量减少计算量，常见的需要进行收敛性测试的参数包括：平面波截断能[**`ecutwfc`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm298)、电荷密度和电势的截断能[**`ecutrho`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm301)(在使用超软赝势和PAW赝势时需要进行收敛性测试)、[**`k-point`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1487)、SCF计算收敛精度[**`conv_thr`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm771)、对于金属进行布里渊区积分时的展宽系数[**`degauss`**](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm379)的收敛性测试。对于收敛性测试，使得能量变化值满足1meV/atom的值即可。使用状态方程（Equation of State）拟合得到晶格常数。
 
 ### （1） ecutwfc的收敛性测试
 
