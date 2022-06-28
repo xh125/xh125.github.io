@@ -11,7 +11,7 @@ tags:
 
 ## QUANTUM ESPRESSO：[Wannier90拟合](http://www.wannier.org/)
 
-从bandfat数据分析，在带隙附近的能带主要由C原子px,py轨道贡献  
+从bandfat数据分析，在带隙附近的能带主要由C原子sp2和pz轨道贡献  
 进行wannier计算的步骤如下：
 
 1. 用pw.x运行‘scf’计算
