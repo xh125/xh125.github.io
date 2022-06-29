@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "QUANTUM ESPRESSO：用GRID进行phonon计算"
-date:       2021-12-16 22:56:00
+date:       2022-06-29 15:10:00
 author:     "Xiehua"
 header-img: "images/post/post-bg-understand.jpg"
 tags:
