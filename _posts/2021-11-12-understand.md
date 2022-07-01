@@ -4,6 +4,7 @@ title:      "Scientific Toolworks Understand安装"
 date:       2021-11-12 16:56:00
 author:     "Xiehua"
 header-img: "images/post/post-bg-understand.jpg"
+comments: true
 tags:
     - Understand
     - 激活秘钥
