@@ -355,6 +355,14 @@ New lattice vectors in NEW alat (for information only):
 
 ```
 
+QE中Fortran代码如下：
+
+```fortran  
+IF(enforce_ibrav) CALL remake_cell( ibrav, alat, at(1,1),at(1,2),at(1,3), new_alat )
+```  
+
+如果vc-relax中没有要求优化中ibrav不变，则不会输出ibrav以及celldm(i)
+
 #### Notes2  
 
 对于类似于石墨烯超胞等原子应该满足严格的分数坐标时，采用vc-relax可能导致原子位置偏移。这是可以在vc-relax计算中，在[&IONS](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm882)中设置参数：[trust_radius_min](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1044)、[trust_radius_ini](https://www.quantum-espresso.org/Doc/INPUT_PW.html#idm1049)等参数，以降低优化过程中原子的移动幅度。对优化后的结构，导入MS查看，可以更好的指导晶体结构的对称性。
