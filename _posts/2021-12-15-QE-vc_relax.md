@@ -359,6 +359,33 @@ QE中Fortran代码如下：
 
 ```fortran  
 IF(enforce_ibrav) CALL remake_cell( ibrav, alat, at(1,1),at(1,2),at(1,3), new_alat )
+
+SUBROUTINE remake_cell(ibrav, alat, a1,a2,a3, new_alat)
+  USE kinds, ONLY : DP
+  USE io_global, ONLY : stdout
+  IMPLICIT NONE
+  INTEGER,INTENT(in) :: ibrav
+  REAL(DP),INTENT(in)  :: alat
+  REAL(DP),INTENT(out) :: new_alat
+  REAL(DP),INTENT(inout) :: a1(3),a2(3),a3(3)
+  REAL(DP) :: e1(3), e2(3), e3(3)
+  REAL(DP) :: celldm_internal(6), lat_internal, omega
+  ! Better not to do the following, or it may cause problems with ibrav=0 from input
+!  ibrav = at2ibrav (a(:,1), a(:,2), a(:,3))
+  ! Instead, let's print a warning and do nothing:
+  IF(ibrav==0)THEN
+    WRITE(stdout,'(a)') "WARNING! With ibrav=0, cell_dofree='ibrav' has no effect. "
+    RETURN
+  ENDIF
+  !
+  CALL  at2celldm (ibrav,alat,a1, a2, a3,celldm_internal)
+  WRITE(stdout,'("ibrav = ",i6)') ibrav
+  WRITE(stdout,'(" celldm(1) = ",f15.8)') celldm_internal(1)
+  IF( celldm_internal(2) /= 0._dp) WRITE(stdout,'(" celldm(2) = ",f15.8)') celldm_internal(2)
+  IF( celldm_internal(3) /= 0._dp) WRITE(stdout,'(" celldm(3) = ",f15.8)') celldm_internal(3)
+  IF( celldm_internal(4) /= 0._dp) WRITE(stdout,'(" celldm(4) = ",f15.8)') celldm_internal(4)
+  IF( celldm_internal(5) /= 0._dp) WRITE(stdout,'(" celldm(5) = ",f15.8)') celldm_internal(5)
+  IF( celldm_internal(6) /= 0._dp) WRITE(stdout,'(" celldm(6) = ",f15.8)') celldm_internal(6)
 ```  
 
 如果vc-relax中没有要求优化中ibrav不变，则不会输出ibrav以及celldm(i)
