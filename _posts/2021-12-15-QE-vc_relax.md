@@ -402,4 +402,4 @@ SUBROUTINE remake_cell(ibrav, alat, a1,a2,a3, new_alat)
 
 ```
 
-为了使得原子受力满足较高的力收敛判据，需要将`cell_dofree    = "ibrav"`取消。
+为了使得原子受力满足较高的力收敛判据，需要将`cell_dofree    = "ibrav"`取消。  
