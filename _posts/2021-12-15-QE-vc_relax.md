@@ -207,6 +207,43 @@ C             5.0000000000        5.0000000000        1.2640744811    0   0   1
 End final coordinates
 ```
 
+采用A, B, C, cosAB, cosAC, cosBC或者celldm进行vc-relax后，会输出新的ibrav以及celldm(i)的值。采用下列命令将可以得到新的ibrav参数和celldm(i):  
+```bash
+grep -B 40 "Begin final coordinates" vc-relax.out
+```
+
+```bash
+     Energy error            =      1.3E-12 Ry
+     Gradient error          =      3.0E-31 Ry/Bohr
+     Cell gradient error     =      6.9E-04 kbar
+ibrav =      4
+ celldm(1) =      4.66232677
+ celldm(3) =      8.10636498
+Input lattice vectors:
+     1.00000020     0.00000000     0.00000000
+    -0.50000010     0.86602557     0.00000000
+     0.00000000     0.00000000     8.10636657
+New lattice vectors in INITIAL alat:
+     1.00000020     0.00000000     0.00000000
+    -0.50000010     0.86602557     0.00000000
+     0.00000000     0.00000000     8.10636657
+New lattice vectors in NEW alat (for information only):
+     1.00000000     0.00000000     0.00000000
+    -0.50000000     0.86602540     0.00000000
+     0.00000000     0.00000000     8.10636498
+Discrepancy in bohr =     0.000000    0.000000    0.000000
+
+     bfgs converged in   2 scf cycles and   1 bfgs steps
+     (criteria: energy <  1.0E-08 Ry, force <  1.0E-07Ry/Bohr, cell <  1.0E-03kbar)
+
+     End of BFGS Geometry Optimization
+
+     Final enthalpy           =     -36.8880451464 Ry
+
+     File ./outdir/graphene.bfgs deleted, as requested
+Begin final coordinates
+```
+
 ### 采用 $ibrav \neq 0$ 以及celldm(i), i=1,6的结构进行结构优化  
 
 ```fortran
