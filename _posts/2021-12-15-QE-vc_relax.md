@@ -207,10 +207,12 @@ C             5.0000000000        5.0000000000        1.2640744811    0   0   1
 End final coordinates
 ```
 
-采用A, B, C, cosAB, cosAC, cosBC或者celldm进行vc-relax后，会输出新的ibrav以及celldm(i)的值。采用下列命令将可以得到新的ibrav参数和celldm(i):  
+采用A, B, C, cosAB, cosAC, cosBC或者celldm进行vc-relax后，如果优化中设置了`cell_dofree    = "ibrav"`，会输出新的ibrav以及celldm(i)的值。采用下列命令将可以得到新的ibrav参数和celldm(i):  
 ```bash
 grep -B 40 "Begin final coordinates" vc-relax.out
 ```
+
+
 
 ```bash
      Energy error            =      1.3E-12 Ry
@@ -305,6 +307,7 @@ C             5.0000000000       5.0000000000       1.2640800000    0   0   1
 
 ```bash
 awk  '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out
+如果设置了`cell_dofree    = "ibrav"`，则可以使用下列命令查到新的celldm(i)
 grep -B 40 "Begin final coordinates" vc-relax.out
 ```
 
