@@ -60,7 +60,6 @@ kramdown:
 
 # Disqus settings
 disqus_username: hua xie
-comments: true
 
 # Netease settings
 netease_comment: false
