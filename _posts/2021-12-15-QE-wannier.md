@@ -16,22 +16,22 @@ tags:
 
 1. 用pw.x运行‘scf’计算，使用修改版的[`PW/src/summary.f90`](https://github.com/xh125/QE-changecode/blob/main/QE_change_code/v7.1/PW/src/summary.f90)重新编译的pw.x将可以输出能够用于wannier90.x输入文件的结构参数：
 
-```bash
-Begin Write cell and positions for Wannier90.x
-begin unit_cell_cart
-Bohr
+    ```bash
+    Begin Write cell and positions for Wannier90.x
+    begin unit_cell_cart
+    Bohr
         4.8484202   0.0000000   0.0000000
         0.0000000  28.3458919   0.0000000
         0.0000000   0.0000000  28.3458919
-end unit_cell_cart
+    end unit_cell_cart
 
-begin atoms_cart
-Bohr
+    begin atoms_cart
+    Bohr
         C          -0.0000026  14.1729459  14.1729459
         C           2.3890085  14.1729459  14.1729459
-end atoms_cart
-End Write cell and positions for Wannier90.x
-```
+    end atoms_cart
+    End Write cell and positions for Wannier90.x
+    ```
 
 1. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
 
@@ -176,8 +176,8 @@ starting guess (written in the seedname.mmn and seedname.amn files).  该过程�
     **NOTE**可能会遇到报错
 
     ```bash
-     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     Error in routine  fft_type_set (6):
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Error in routine  fft_type_set (6):
     there are processes with no planes. Use pencil decomposition (-pd .true.)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     ```
