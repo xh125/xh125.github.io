@@ -14,7 +14,24 @@ tags:
 从bandfat数据分析，在带隙附近的能带主要由C原子sp2和pz轨道贡献  
 进行wannier计算的步骤如下：
 
-1. 用pw.x运行‘scf’计算
+1. 用pw.x运行‘scf’计算，使用修改版的[`PW/src/summary.f90`](https://github.com/xh125/QE-changecode/blob/main/QE_change_code/v7.1/PW/src/summary.f90)重新编译的pw.x将可以输出能够用于wannier90.x输入文件的结构参数：
+   ```bash
+Begin Write cell and positions for Wannier90.x
+begin unit_cell_cart
+Bohr
+        4.8484202   0.0000000   0.0000000
+        0.0000000  28.3458919   0.0000000
+        0.0000000   0.0000000  28.3458919
+end unit_cell_cart
+
+begin atoms_cart
+Bohr
+        C          -0.0000026  14.1729459  14.1729459
+        C           2.3890085  14.1729459  14.1729459
+end atoms_cart
+End Write cell and positions for Wannier90.x
+
+   ```
 2. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
 
    ```bash
@@ -30,7 +47,12 @@ tags:
    ```
 
 3. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。该过程比较快，可以在主节点直接运行。  
-  
+    使用命令：
+
+    ```bash
+    awk '/Begin Write/,/End Write/' scf.out|awk '/begin unit/,/end atoms/'>>carbyne.win
+    ```
+
     - 构建输入文件carbyne.win  
 
       ```fortran
