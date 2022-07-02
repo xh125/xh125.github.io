@@ -15,7 +15,8 @@ tags:
 进行wannier计算的步骤如下：
 
 1. 用pw.x运行‘scf’计算，使用修改版的[`PW/src/summary.f90`](https://github.com/xh125/QE-changecode/blob/main/QE_change_code/v7.1/PW/src/summary.f90)重新编译的pw.x将可以输出能够用于wannier90.x输入文件的结构参数：
-   ```bash
+
+```bash
 Begin Write cell and positions for Wannier90.x
 begin unit_cell_cart
 Bohr
@@ -30,9 +31,9 @@ Bohr
         C           2.3890085  14.1729459  14.1729459
 end atoms_cart
 End Write cell and positions for Wannier90.x
+```
 
-   ```
-2. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
+1. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
 
    ```bash
    cp scf.in nscf.in
@@ -46,7 +47,7 @@ End Write cell and positions for Wannier90.x
    pw.x <nscf.in>nscf.out
    ```
 
-3. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。该过程比较快，可以在主节点直接运行。  
+1. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。该过程比较快，可以在主节点直接运行。  
     使用命令：
 
     ```bash
@@ -151,7 +152,7 @@ End Write cell and positions for Wannier90.x
     **NOTE:** 其结果中包含有初始指定的projections函数(以alat为单位)：
     ! convert wannier center in cartesian coordinates (in unit of alat)
 
-4. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
+2. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
 starting guess (written in the seedname.mmn and seedname.amn files).  该过程比较慢，最好在计算节点完成。  
 
     `pw2wannier90.x < pw2wan.in > pw2wan.out`
