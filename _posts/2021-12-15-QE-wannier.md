@@ -33,7 +33,7 @@ tags:
     End Write cell and positions for Wannier90.x
     ```
 
-1. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
+2. 用pw.x进行'nscf'计算，需要列出所有k点的坐标，和权重，使用kmesh.pl生成。注意修改`nbnd`，使得其包含要拟合的能带，通过fatband的结果来看需要采用多少条能带。
 
    ```bash
    cp scf.in nscf.in
@@ -47,7 +47,7 @@ tags:
    pw.x <nscf.in>nscf.out
    ```
 
-1. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。该过程比较快，可以在主节点直接运行。  
+3. 运行wannier90.x -pp (预处理pre-process，或在输入文件内写postproc_setup = .true.)生成seedname.nnkp。该过程比较快，可以在主节点直接运行。  
     使用命令：
 
     ```bash
@@ -152,7 +152,7 @@ tags:
     **NOTE:** 其结果中包含有初始指定的projections函数(以alat为单位)：
     ! convert wannier center in cartesian coordinates (in unit of alat)
 
-2. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
+4. Run pw2wannier90 to compute the overlap between Bloch states and the projections for the
 starting guess (written in the seedname.mmn and seedname.amn files).  该过程比较慢，最好在计算节点完成。  
 
     `pw2wannier90.x < pw2wan.in > pw2wan.out`
@@ -182,8 +182,7 @@ starting guess (written in the seedname.mmn and seedname.amn files).  该过程�
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     ```
 
-    需要使用`mpirun -np $NP pw2wannier90.x <pw2wan.in> pw2wan.out`并行计算，并且$NP太大时会导致部分核分配不到平面波，需要适当减小`\$NP`的值
-
+    需要使用`mpirun -np $NP pw2wannier90.x <pw2wan.in> pw2wan.out`并行计算，并且$NP太大时会导致部分核分配不到平面波，需要适当减小`\$NP`的值  
 
 5. Run wannier90 to compute the MLWFs.  
    `mpirun -np 28 wannier90.x seedname`  
