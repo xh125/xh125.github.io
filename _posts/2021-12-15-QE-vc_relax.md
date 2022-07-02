@@ -167,7 +167,7 @@ End final coordinates
 /
 
 &CELL
-    cell_dofree    = "z"
+    cell_dofree    = "ibrav+z"
     cell_dynamics  = "bfgs"
     press_conv_thr =  0.01
 /
@@ -287,7 +287,7 @@ Begin final coordinates
 /
 
 &CELL
-    cell_dofree    = "z"
+    cell_dofree    = "ibrav+z"
     cell_dynamics  = "bfgs"
     press_conv_thr =  0.01
 /
