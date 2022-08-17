@@ -17,9 +17,8 @@ tags:
 **安装说明**：EndNote软件为正版软件，正确安装时不存在试用期和需要产品号的问题。下载软件后请完全解压缩到一个新文件夹内进行安装（不要直接双击打开）。压缩后会生成 EN20Inst.msi、License.dat两个文件到同一个文件夹中，之后双击EN20Inst.msi文件进行安装，不需要输入序列号。
 
 ### 2.Endnote与Sci-hub联用
-简介：利用EndNote中存储的DOI信息，通过设置新的样式，添加可用的SCI-hub官方网页前缀生成相应网页链接，之后则可以进行下载，效果如下：
-！[scihub.png](https://xh125.github.io/images/post/scihub.png)
-点击链接则可直接下载文献
+简介：利用EndNote中存储的DOI信息，通过设置新的样式，添加可用的SCI-hub官方网页前缀生成相应网页链接，之后则可以进行下载，效果如下：点击链接则可直接下载文献
+![scihub.png](https://xh125.github.io/images/post/scihub.png)
 
 ### 3.样式设置步骤
 
