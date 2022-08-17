@@ -14,7 +14,7 @@ tags:
 ### 1.下载安装
 [下载地址:Endnote20.rar](https://mailustceducn-my.sharepoint.com/:u:/g/personal/xh125_mail_ustc_edu_cn/EQkmBvVWKetIvf7eAu8mwVoBwT4LKkVehgB2MUVDR2YooA?e=KphC7g)
 
-**安装说明**：EndNote软件为正版软件，正确安装时不存在试用期和需要产品号的问题。下载软件后请完全解压缩到一个新文件夹内进行安装（不要直接双击打开）。在版本更新时最好将旧版本卸载后安装新版本。
+**安装说明**：EndNote软件为正版软件，正确安装时不存在试用期和需要产品号的问题。下载软件后请完全解压缩到一个新文件夹内进行安装（不要直接双击打开）。压缩后会生成 EN20Inst.msi、License.dat两个文件到同一个文件夹中，之后双击EN20Inst.msi文件进行安装，不需要输入序列号。
 
 ### 2.Endnote与Sci-hub联用
 简介：利用EndNote中存储的DOI信息，通过设置新的样式，添加可用的SCI-hub官方网页前缀生成相应网页链接，之后则可以进行下载，效果如下：
