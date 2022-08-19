@@ -48,4 +48,5 @@ To get to the Library folder in 10.7 and later, Hold down the "Option" key on yo
 
 **Notes：** 修改ENCase.txt文件时，需要将Endnote关闭，否则ENCase.txt会被重置，导致修改不成功。
 
+[0]:https://xh125.github.io/images/post/
 [1]:https://support.clarivate.com/Endnote/s/article/EndNote-Change-Case-sharing-or-transfer-to-another-machine?language=en_US
