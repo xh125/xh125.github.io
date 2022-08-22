@@ -41,14 +41,18 @@ tags:
 
 宏定义，是在程序中实现定义好一些宏观参数，以便在程序代码里统一使用，减少修改量。例如宏定义：`#define __MPI`、`#define __CUDA`、`#define __DEBUG`等
 
-宏定义可以直接写进代码中，也可以在make编译语句中写入宏定义。例如宏定义直接写入代码中，如下代码：
+宏定义可以直接写进代码中，也可以在编译语句中写入宏定义。例如宏定义直接写入代码中，如下代码：
 
 ```fortran
 #define N 3
+#define __DEBUG
 Program www_fcode_cn
   Implicit None
   real :: a(N) = 1.0 , b(N) = 2.0
   integer :: i
+#ifdef __DEBUG
+  write(*,*) "It's a debug version."
+#endif
   Do i = 1 , N
     write(*,*) a(i) , b(i)
   End Do
@@ -62,13 +66,16 @@ Program www_fcode_cn
   Implicit None
   real :: a(N) = 1.0 , b(N) = 2.0
   integer :: i
+#ifdef __DEBUG
+  write(*,*) "It's a debug version."
+#endif  
   Do i = 1 , N
     write(*,*) a(i) , b(i)
   End Do
 End Program www_fcode_cn
 ```
 
-`ifort -fpp -DN=3 main.f90 -o main.exe`
+`ifort -fpp -DN=3 -D__DEBUG main.f90 -o main.exe`
 
 它定义了 N 这个预处理常量，并让它为 3，则预处理器会将代码中所有 `N` 这个 token 替换为 `3`。
 注意必须是单独的 **token**，例如：real :: sN 并不会替换为 real :: s3 , 而 a = "number" 也不会替换为 a = "3umber"
@@ -120,6 +127,13 @@ End Program www_fcode_cn
 此外，如果包含文件（如name.f90）是自由格式，那么被包含文件（如 inc.h）也必须是自由格式。如果一个是固定格式，另一个也必须是固定格式。
 
 需要注意的是，由于被包含文件（如 inc.h）已经被替换到 name.F90 文件中。因此，它不能再被编译、参与链接。所以，它不必，也不能出现在工程、解决方案中。这是区别于“多文件编译连接”的。
+
+**Note：** 新的Fortran语法中，include前不需要添加"#",直接使用就可以。参考：“Fortran 2018 with Parallel Programming”的1.42。严格来说，include指令不是Fortran语句，它是编译器的指令。其语法规则是：
+
+```fortran
+include 'char-constant'
+```
+其中‘char-constant’一般为文件名。编译器将include语句替换为文件的内容。
 
 ### 四. 条件编译
 
