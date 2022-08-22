@@ -71,6 +71,58 @@ program main
 end program main
 ```
 
+### systemqq
+
+SYSTEMQQ
+
+Run-Time Function: Executes a system command by passing a command string to the operating system's command interpreter.
+
+Module: `USE DFLIB`
+
+Syntax
+
+result = SYSTEMQQ (commandline)
+
+commandline
+
+(Input) Character*(*). Command to be passed to the operating system.
+
+Results:
+
+The result is of type LOGICAL(4). The result is .TRUE. if successful; otherwise, .FALSE..
+
+The SYSTEMQQ function lets you pass operating-system commands as well as programs. SYSTEMQQ refers to the COMSPEC and PATH environment variables that locate the command interpreter file (usually named COMMAND.COM).
+
+On WNT systems, the calling process waits until the command terminates. On W9* systems, the calling process does not currently wait in all cases; however, this may change in future implementations. To insure compatibility and consistent behavior, an image can be invoked directly by using the Win32 APICreateProcess( ) in your Fortran code.
+
+If the function fails, call GETLASTERRORQQ to determine the reason. One of the following errors can be returned:
+
+ERR$2BIG - The argument list exceeds 128 bytes, or the space required for the environment formation exceeds 32K.
+
+ERR$NOINT - The command interpreter cannot be found.
+
+ERR$NOEXEC - The command interpreter file has an invalid format and is not executable.
+
+ERR$NOMEM - Not enough memory is available to execute the command; or the available memory has been corrupted; or an invalid block exists, indicating that the process making the call was not allocated properly.
+
+The command line character limit for the SYSTEMQQ function is the same limit that your operating system command interpreter accepts.
+
+Compatibility
+
+CONSOLE STANDARD GRAPHICS QUICKWIN GRAPHICS WINDOWS DLL LIB
+
+See Also: SYSTEM
+
+Example
+
+```fortran
+implicit none
+USE DFLIB
+LOGICAL(4) result
+
+result = SYSTEMQQ('copy c:\bin\fmath.dat c:\dat\fmath2.dat')
+```
+
 [0]:https://www.cnblogs.com/erichf/p/13905140.html
 [1]:https://docs.oracle.com/cd/E19957-01/805-4942/6j4m3r90i/index.html
 [2]:https://rosettacode.org/wiki/Execute_a_system_command#Fortran
