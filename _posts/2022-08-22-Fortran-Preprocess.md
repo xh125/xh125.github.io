@@ -156,8 +156,6 @@ End Program www_fcode_cn
 
 关于预处理指令，除了上面介绍的常用三种外，不同的编译器环境下，还有更多的用法。请读者朋友自行阅读编译器帮助文档了解。
 
-
-
 [0]:https://xh125.github.io/images/Fortran/preprocess.png
 [1]:http://fcode.cn/guide-109-1.html
 [2]:[0]:https://xh125.github.io/images/Fortran/VS-fpp.png
