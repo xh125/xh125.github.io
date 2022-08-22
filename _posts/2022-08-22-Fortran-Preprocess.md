@@ -29,10 +29,10 @@ tags:
 
 ### 一. 常见的预处理器  
 
-在 GNU 的编译器（gfortran）上，通常会使用预处理器 fpp （缺省调用、常用）或 C 语言预处理器 cpp（注意这里的 cpp 意思是 C Preprocessor 而不是 C Plus Plus）。
+在 GNU 的编译器（gfortran）上，通常会使用预处理器 `fpp` （**缺省调用、常用**）或 C 语言预处理器 `cpp`（注意这里的 `cpp` 意思是 C Preprocessor 而不是 C Plus Plus）,`fpp`代表 Fortran Preprocessor。
 默认情况下，如果源代码的扩展名为大写（即 F90 , F , F95 等），则会将预处理器应用在该源代码上。
 
-在 Intel 编译器上，除了可以使用 fpp 外，还可以使用 !DEC$ 等编译器指令来实现部分预处理。
+在 Intel 编译器上，除了可以使用 `fpp` 外，还可以使用 `!DEC$` 等编译器指令来实现部分预处理。
 （使用 fpp 时，需要专门指定编译选项 /fpp，如未指定，会收到一条警告：warning #5117: Bad # preprocessor line）
 
 ![VS-fpp][2]
