@@ -93,7 +93,7 @@ Program www_fcode_cn
 End Program www_fcode_cn
 ```
 
-在Visual Studio中宏定义可以在代码中设置，或者在工程文件属性中设置：
+在Visual Studio中宏定义可以在代码中设置，或者在工程文件属性`Preprocessor Definitions`中设置：
 ![VS-define][4]
 
 但是，由于预处理常量的存在，使得将来 N 修改为其他数值，如 `#define N 30` 更容易。
