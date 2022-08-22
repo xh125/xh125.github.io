@@ -78,6 +78,7 @@ SYSTEMQQ
 Run-Time Function: Executes a system command by passing a command string to the operating system's command interpreter.
 
 Module: `USE DFLIB`
+dflib  是 cvf 或 ivf 提供的扩展库。
 
 Syntax
 
