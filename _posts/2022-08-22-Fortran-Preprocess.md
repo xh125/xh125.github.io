@@ -39,9 +39,9 @@ tags:
 
 ### 二. 宏定义
 
-宏定义，是在程序中实现定义好一些宏观参数，以便在程序代码里统一使用，减少修改量。
+宏定义，是在程序中实现定义好一些宏观参数，以便在程序代码里统一使用，减少修改量。例如宏定义：`#define __MPI`、`#define __CUDA`、`#define __DEBUG`等
 
-例如，如下代码：
+宏定义可以直接写进代码中，也可以在make编译语句中写入宏定义。例如宏定义直接写入代码中，如下代码：
 
 ```fortran
 #define N 3
@@ -55,8 +55,23 @@ Program www_fcode_cn
 End Program www_fcode_cn
 ```
 
-它定义了 N 这个预处理常量，并让它为 3，则预处理器会讲代码中所有 N 这个 token 替换为 3。
-注意必须是单独的 token，例如：real :: sN 并不会替换为 real :: s3 , 而 a = "number" 也不会替换为 a = "3umber"
+在编译时通过预处理加入宏定义：
+
+```fortran
+Program www_fcode_cn
+  Implicit None
+  real :: a(N) = 1.0 , b(N) = 2.0
+  integer :: i
+  Do i = 1 , N
+    write(*,*) a(i) , b(i)
+  End Do
+End Program www_fcode_cn
+```
+
+`ifort -fpp -DN=3 main.f90 -o main.exe`
+
+它定义了 N 这个预处理常量，并让它为 3，则预处理器会将代码中所有 `N` 这个 token 替换为 `3`。
+注意必须是单独的 **token**，例如：real :: sN 并不会替换为 real :: s3 , 而 a = "number" 也不会替换为 a = "3umber"
 
 所以上述代码经过预处理后，实际交给编译器的代码为：
 
@@ -88,7 +103,7 @@ End Program www_fcode_cn
 
 这样的好处是：对N进行了必要的约束，它只能是整型。并且它符合语法规范。只有当 N 不能用特定的数据类型来表达时，才需要使用预处理常量。
 
-在 Intel Fortran compiler 编译器上，也可以使用 `!DEC$ DEFINE SN=3` 来定义 `SN` 这个预处理常量，让它的值等于 3。但它并不能用于替换源代码中的 `N`，只能用在条件编译时的判断（例如 `!DEC$ IF (SN==3)`）。
+在 Intel Fortran compiler 编译器上，也可以使用 `!DEC$ DEFINE SN=3` 来定义 `SN` 这个预处理常量，让它的值等于 3。但它并不能用于替换源代码中的 `N`，只能用在**条件编译**时的判断（例如 `!DEC$ IF (SN==3)`）。
 
 ### 三. 包含文件 include
 
