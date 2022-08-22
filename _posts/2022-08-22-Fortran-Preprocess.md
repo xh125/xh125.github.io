@@ -158,5 +158,5 @@ End Program www_fcode_cn
 
 [0]:https://xh125.github.io/images/Fortran/preprocess.png
 [1]:http://fcode.cn/guide-109-1.html
-[2]:[0]:https://xh125.github.io/images/Fortran/VS-fpp.png
+[2]:https://xh125.github.io/images/Fortran/VS-fpp.png
 [3]:https://xh125.github.io/images/Fortran/include.png
