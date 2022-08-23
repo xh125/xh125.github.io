@@ -138,6 +138,21 @@ include 'char-constant'
 ```
 其中‘char-constant’一般为文件名。编译器将include语句替换为文件的内容。
 
+include包含头文件的路径设置，在linux下可以在Makefile文件中指定`IFLAGS`、在编译中使用`-I`来指定include文件查找的路径，例如：
+```bash
+project_home = $(dir $(abspath $(MAKEFILE_LIST)))
+# IFLAGS = how to locate directories with *.h or *.f90 file to be included
+IFLAGS         = -I$(project_home)/include
+CFLAGS   =  -O3 $(DFLAGS) $(IFLAGS)
+F90FLAGS =  $(FFLAGS) -fpp $(IFLAGS) $(FDFLAGS)
+FFLAGS         = -O2
+```
+
+在Visual Studio中在预处理中设置include的路径：
+
+![Fortran-include][5]
+
+
 ### 四. 条件编译
 
 在某些时候，我们可能需要同一套代码编译出来多种可能的程序，分别适应不同的情况。例如，可以编译出中文版和英文版,可以编译出串行版或者并行版。
@@ -194,3 +209,4 @@ End Program www_fcode_cn
 [2]:https://xh125.github.io/images/Fortran/VS-fpp.png
 [3]:https://xh125.github.io/images/Fortran/include.png
 [4]:https://xh125.github.io/images/Fortran/VS-define.png
+[5]:https://xh125.github.io/images/Fortran/VS-include.png
