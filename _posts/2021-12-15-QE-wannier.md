@@ -6,7 +6,7 @@ author:     "Xiehua"
 header-img: "images/post/post-bg-understand.jpg"
 tags:
     - QUANTUM ESPRESSO
-    - wannier
+    - Wannier
 ---
 
 ## QUANTUM ESPRESSO：[Wannier90拟合](http://www.wannier.org/)
