@@ -102,8 +102,10 @@ Warning: check if difference with Fermi level fine grid makes sense
 integer :: nbndnfbfe
 !! number of band not wannier fitting below fermi energy
 ```
-![][0]
 
+![nelec-1][0]
+
+- 2.
 
 
 
