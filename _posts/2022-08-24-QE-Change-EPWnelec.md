@@ -105,16 +105,27 @@ integer :: nbndnfbfe
 
 ![nelec-1][0]
 
-- 2.
-
-
-
+- 2. 在`epw_readin.f90`中添加对变量`nbndnfbfe`的设置
+  - 2.1 在`USE epwcom, only :` 中添加`nbndnfbfe`
+  ![nelec-2.png][1]
+  - 2.2 在`NAMELIST / inputepw /`中添加`nbndnfbfe`
+  ![nelec-3.png][2]
+  - 2.3 在607行左右设置`nbndnfbfe`的初始值为`0`
+  ![nelec-4.png][3]
+  - 2.4 在1000行左右，将`nbndnfbfe`的值传递给所有核。
+  `call mp_bcast(nbndnfbfe,meta_ionode_id,world_comm)`
+  ![nelec-5.png][4]
 
 
 
 
 
 [0]:https://xh125.github.io/images/QE-change/nelec-1.png
-[1]:https://xh125.github.io/images/QE-change/shuffle-2.png
-[2]:https://github.com/xh125/LVCSH-new/blob/main/docs/QE_change_code/QE_change_code/v7.1/Originalcode/PW/src/summary.f90
-[3]:https://github.com/xh125/LVCSH-new/blob/main/docs/QE_change_code/QE_change_code/v7.1/PW/src/summary.f90  
+[1]:https://xh125.github.io/images/QE-change/nelec-2.png
+[2]:https://xh125.github.io/images/QE-change/nelec-3.png
+[3]:https://xh125.github.io/images/QE-change/nelec-4.png
+[4]:https://xh125.github.io/images/QE-change/nelec-5.png
+
+
+[21]:https://github.com/xh125/LVCSH-new/blob/main/docs/QE_change_code/QE_change_code/v7.1/Originalcode/PW/src/summary.f90
+[31]:https://github.com/xh125/LVCSH-new/blob/main/docs/QE_change_code/QE_change_code/v7.1/PW/src/summary.f90  
