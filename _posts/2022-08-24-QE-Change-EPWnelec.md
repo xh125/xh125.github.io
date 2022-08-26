@@ -105,13 +105,17 @@ integer :: nbndnfbfe
 
 ![nelec-1][0]
 
-- 2. 在`epw_readin.f90`中添加对变量`nbndnfbfe`的设置
+- 2. 在`epw_readin.f90`中添加对变量`nbndnfbfe`的设置  
+
   - 2.1 在`USE epwcom, only :` 中添加`nbndnfbfe`
   ![nelec-2.png][1]
+
   - 2.2 在`NAMELIST / inputepw /`中添加`nbndnfbfe`
   ![nelec-3.png][2]
+
   - 2.3 在607行左右设置`nbndnfbfe`的初始值为`0`
   ![nelec-4.png][3]
+
   - 2.4 在1000行左右，将`nbndnfbfe`的值传递给所有核。
   `call mp_bcast(nbndnfbfe,meta_ionode_id,world_comm)`
   ![nelec-5.png][4]
@@ -119,7 +123,8 @@ integer :: nbndnfbfe
 - 3. 在`ephwann_shuffle.f90`和`ephwann_shuffle_mem.f90`中添加`nbndnfbfe`,并根据`nbndnfbfe`对`nelec`进行修正。
 
   - 3.1 在`ephwann_shuffle.f90`和`ephwann_shuffle_mem.f90`的`USE epwcom, only :` 中添加`nbndnfbfe`
-  ![nelec-6.png][5]
+  ![nelec-6.png][5]  
+
   - 3.2 在`ephwann_shuffle.f90`和`ephwann_shuffle_mem.f90`的下列语句之间添加对`nelec`的修正：
   
   ```fortran
@@ -155,6 +160,7 @@ bands_skipped = 'exclude_bands = 1:2'
 ```
 
 - 5. 修改后代码以及软件编译参考：[QUANTUM ESPRESSO v7.1 修改版安装][10]
+
 
 [0]:https://xh125.github.io/images/QE-change/nelec-1.png
 [1]:https://xh125.github.io/images/QE-change/nelec-2.png
