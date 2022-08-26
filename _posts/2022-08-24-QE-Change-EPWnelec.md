@@ -116,16 +116,55 @@ integer :: nbndnfbfe
   `call mp_bcast(nbndnfbfe,meta_ionode_id,world_comm)`
   ![nelec-5.png][4]
 
+- 3. 在`ephwann_shuffle.f90`和`ephwann_shuffle_mem.f90`中添加`nbndnfbfe`,并根据`nbndnfbfe`对`nelec`进行修正。
 
+  - 3.1 在`ephwann_shuffle.f90`和`ephwann_shuffle_mem.f90`的`USE epwcom, only :` 中添加`nbndnfbfe`
+  ![nelec-6.png][5]
+  - 3.2 在`ephwann_shuffle.f90`和`ephwann_shuffle_mem.f90`的下列语句之间添加对`nelec`的修正：
+  
+  ```fortran
+  WRITE(stdout,'(/5x,a,f17.10,a)') 'Fermi energy coarse grid = ', ef * ryd2ev, ' eV'	
+  !
+  IF (efermi_read) THEN
+  ```
 
+  改为：
+  
+  ```fortran
+  WRITE(stdout,'(/5x,a,f17.10,a)') 'Fermi energy coarse grid = ', ef * ryd2ev, ' eV'
+  !
+  IF (noncolin) THEN
+    nelec = nelec - one * nbndnfbfe
+  ELSE
+    nelec = nelec - two * nbndnfbfe
+  ENDIF
+  !
+  IF (efermi_read) THEN
+  ```
 
+ ![nelec-7.png][6]
+ ![nelec-8.png][7]
+
+- 4. 则在epw的输入文件中可以使用参数`nbndnfbfe`来指定费米面以下未被Wannier拟合且未被`exclude_bands`的能带条数来避免这个bug。输入文件如下：
+
+```fortran
+wannierize = .true.
+nbndsub = 2
+nbndnfbfe = 3
+bands_skipped = 'exclude_bands = 1:2'
+```
+
+- 5. 修改后代码以及软件编译参考：[QUANTUM ESPRESSO v7.1 修改版安装][10]
 
 [0]:https://xh125.github.io/images/QE-change/nelec-1.png
 [1]:https://xh125.github.io/images/QE-change/nelec-2.png
 [2]:https://xh125.github.io/images/QE-change/nelec-3.png
 [3]:https://xh125.github.io/images/QE-change/nelec-4.png
 [4]:https://xh125.github.io/images/QE-change/nelec-5.png
+[5]:https://xh125.github.io/images/QE-change/nelec-6.png
+[6]:https://xh125.github.io/images/QE-change/nelec-7.png
+[7]:https://xh125.github.io/images/QE-change/nelec-8.png
 
-
+[10]:https://xh125.github.io/2022/07/01/QE-v7.1-install/
 [21]:https://github.com/xh125/LVCSH-new/blob/main/docs/QE_change_code/QE_change_code/v7.1/Originalcode/PW/src/summary.f90
 [31]:https://github.com/xh125/LVCSH-new/blob/main/docs/QE_change_code/QE_change_code/v7.1/PW/src/summary.f90  
