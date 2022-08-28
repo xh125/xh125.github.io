@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "修改EPW输出复数形式的$g_{mnv}(k,q)$"
+title:      "修改EPW输出复数形式的$g_{mnv}(\textbf{k},\textbf{q})$"
 date:       2022-08-28 14:56:00
 author:     "Xiehua"
 header-img: "images/post/post-bg-understand.jpg"
@@ -11,7 +11,8 @@ tags:
 ---
 ## 修改printing.f90中的subroutine print_gkk，输出复数形式的$g_{mnv}(k,q)$
 
-**要求：** 不需要根据简并特点求平均，为了得到能量量纲的电声耦合大小，输出的值为：$\sqrt{\frac{\hbar}{2\omega_{qv}}}g_{mnv}(k,q)$
+**要求：** 不需要根据简并特点求平均，为了得到能量量纲的电声耦合大小，输出的值为：$\sqrt{\frac{\hbar}{2\omega_{qv}}}g_{mnv}(\textbf{k},
+\textbf{q})$
 
 对`printing.f90`做如下修改：
 
