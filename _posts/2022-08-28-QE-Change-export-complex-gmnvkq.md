@@ -19,7 +19,7 @@ $$g_{mn\nu}(\textbf{k},\textbf{q})=\langle{m\textbf{k+q}}|\partial_{\textbf{q}\n
 $$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})=\sqrt{\frac{\hbar}{2m_0\omega_{q\nu}}}g_{mn\nu}(\textbf{k},
 \textbf{q})$$
 
-其中$m_0$为一个任意的参考质量，只是为了方便数据处理，$m_0$一般选择为电子质量或者质子质量，电子质量在Hartree原子单位制下为1。
+其中$m_0$为一个任意的参考质量，只是为了方便数据处理，$m_0$一般选择为质子质量。
 
 其中$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})$具有能量量纲,$g_{mn\nu}(\textbf{k},\textbf{q})$具有能量除以长度量纲。  
 [reference:Electron-phonon interaction using Wannier functions][2]
