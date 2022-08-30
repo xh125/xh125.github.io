@@ -21,7 +21,7 @@ $$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})=\sqrt{\frac{\hbar}{2m_0\omega_{q\nu}}}g_
 
 其中$m_0$为一个任意的参考质量，只是为了方便数据处理，$m_0$一般选择为电子质量或者质子质量，电子质量在Hartree原子单位制下为1。
 
-其中$g^{SE}_{mnv}(\textbf{k},\textbf{q})$具有能量量纲，$g_{mnv}(\textbf{k},\textbf{q})$具有能量除以长度量纲。[reference:Electron-phonon interaction using Wannier functions
+其中 $g^{SE}_{mnv}(\textbf{k},\textbf{q})$ 具有能量量纲， $g_{mnv}(\textbf{k},\textbf{q})$ 具有能量除以长度量纲。[reference:Electron-phonon interaction using Wannier functions
 ][2]
 
 对`printing.f90`做如下修改：
