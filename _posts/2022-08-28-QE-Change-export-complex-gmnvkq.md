@@ -24,7 +24,8 @@ $g^{SE}_{mn\nu}(\textbf{k},\textbf{q})$
 具有能量量纲,
 $g_{mn\nu}(\textbf{k},\textbf{q})$
 具有能量除以长度量纲。  
-[reference:Electron-phonon interaction using Wannier functions][2]
+
+<font size=5 > [reference:Electron-phonon interaction using Wannier functions][2]</font>
 
 对`printing.f90`做如下修改：
 
