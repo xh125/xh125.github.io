@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      修改EPW输出复数形式的$g_{mn\{nu}}(k,q)$
+title:      "修改EPW输出复数形式的$g_{mnv}(k,q)$"
 date:       2022-08-28 14:56:00
 author:     "Xiehua"
 header-img: "images/post/post-bg-understand.jpg"
