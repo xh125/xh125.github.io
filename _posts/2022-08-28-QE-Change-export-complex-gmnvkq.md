@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "修改EPW输出复数形式的$g_{mnv}(k,q)$"
+title:      "修改EPW输出复数形式的$g_{mn\nu}(k,q)$"
 date:       2022-08-28 14:56:00
 author:     "Xiehua"
 header-img: "images/post/post-bg-understand.jpg"
@@ -9,10 +9,20 @@ tags:
     - gmnvkq
     - LVCSH
 ---
-## 修改`printing.f90`中的`subroutine print_gkk`，输出复数形式的$g_{mnv}(k,q)$
+## 修改`printing.f90`中的`subroutine print_gkk`，输出复数形式的$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})$
 
-**要求：** 不需要根据简并特点求平均，为了得到能量量纲的电声耦合大小，输出的值为：$\sqrt{\frac{\hbar}{2\omega_{qv}}}g_{mnv}(\textbf{k},
+**要求：** 不需要根据简并特点求平均，为了得到能量量纲的电声耦合大小，输出的值为：$\sqrt{\frac{\hbar}{2m_0\omega_{qv}}}g_{mnv}(\textbf{k},
 \textbf{q})$
+
+$$g_{mn\nu}(\textbf{k},\textbf{q})=\langle{m\textbf{k+q}}|\partial_{\textbf{q}\nu}V|n\textbf{k}\rangle$$ 
+
+$$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})=\sqrt{\frac{\hbar}{2m_0\omega_{q\nu}}}g_{mn\nu}(\textbf{k},
+\textbf{q})$$
+
+其中$m_0$为一个任意的参考质量，只是为了方便数据处理，一般选择为电子质量，在Hartree原子单位制下为1。
+
+其中$g^{SE}_{mnv}(\textbf{k},\textbf{q})$具有能量量纲，$g_{mnv}(\textbf{k},\textbf{q})$具有能量除以长度量纲。[reference:Electron-phonon interaction using Wannier functions
+][2]
 
 对`printing.f90`做如下修改：
 
@@ -104,4 +114,5 @@ tags:
 **Note:** 如遇到问题，欢迎在评论区留言。评论系统采用了[Disqus系统][1]，需要翻墙才能加载。
 
 [1]:https://disqus.com/
+[2]:https://journals.aps.org/prb/abstract/10.1103/PhysRevB.76.165108
 [10]:https://xh125.github.io/2022/07/01/QE-v7.1-install/
