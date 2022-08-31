@@ -31,8 +31,7 @@ $g_{mn\nu}(\textbf{k},\textbf{q})$
 
 [reference:Electron-phonon interaction using Wannier functions][2]
 
-在实际的EPW程序中，`epf17`的量纲是$\frac{E}{\sqrt{M}l}$,输出$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})$  
-时只需要乘以$\sqrt{\frac{\hbar}{2\omega_{qv}}}$  
+在实际的EPW程序中，`epf17`的量纲是$\frac{E}{\sqrt{M}l}$,输出$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})$时只需要乘以$\sqrt{\frac{\hbar}{2\omega_{qv}}}$  
 
 ```fortran
             gamma = (ABS(epf17(jbnd, ibnd, nu, ik)))**two
