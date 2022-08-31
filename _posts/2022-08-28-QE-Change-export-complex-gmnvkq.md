@@ -17,7 +17,7 @@ $$g_{mn\nu}(\textbf{k},\textbf{q})=\langle{m\textbf{k+q}}|\partial_{\textbf{q}\n
 
 $$g^{SE}_{mn\nu}(\textbf{k},\textbf{q})=\sqrt{\frac{\hbar}{2m_0\omega_{q\nu}}}g_{mn\nu}(\textbf{k},\textbf{q})$$  
 
-其中$m_0$为一个任意的参考质量，只是为了方便数据处理，$m_0$一般选择为质子质量,用于消除[文献][2]公式（13）、（15）、（17）中引入的$m_0$。
+其中$m_0$为一个任意的参考质量，只是为了方便数据处理，$m_0$一般选择为质子质量,用于消除[文献：Electron-phonon interaction using Wannier functions][2]中公式（12）、（13）、（15）、（17）中计算$\partial_{\textbf{q}\nu}V$时引入的$m_0$。
   
 其中  
 
