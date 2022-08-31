@@ -129,7 +129,7 @@ $$\sqrt{\frac{\hbar}{2\omega_{qv}}}$$
 
 ### 修改后代码以及软件编译参考：[QUANTUM ESPRESSO v7.1 修改版安装][10]
 
-**Note:** 如遇到问题，欢迎在评论区留言。评论系统采用了[Disqus系统][1]，需要翻墙才能加载。
+**Note:** 如有建议或者遇到问题，欢迎在评论区留言。评论系统采用了[Disqus系统][1]，需要翻墙才能加载。
 
 [1]:https://disqus.com/
 [2]:https://journals.aps.org/prb/abstract/10.1103/PhysRevB.76.165108
