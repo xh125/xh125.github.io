@@ -23,9 +23,16 @@ systemd 是一套用于 Linux 系统的基本构建模块，它提供了一个�
 
 ### 如何在 Ubuntu WSL 中启用 systemd
 • 要使用`systemd`，首先需确保运行的是来自 Microsoft Store 且版本号为 0.67.6 及以上版本的 WSL，用户可以运行 `wsl --version` 来检查版本号。
+如果你正在运行旧版本，你可以通过 微软应用商店(Microsoft Store) 或者以下命令更新它。
+
+```bash
+wsl --update
+```
+
 • 其次需要在 Ubuntu 实例中，将以下修改内容添加到 /etc/wsl.conf 中：
 ```bash
-[boot]systemd=true
+[boot]
+systemd=true
 ```
 • 然后通过在 PowerShell 中运行 `wsl --shutdown` 来重启实例，并重新启动 Ubuntu
 
