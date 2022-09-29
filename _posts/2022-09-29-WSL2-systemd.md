@@ -10,7 +10,7 @@ tags:
 ---
 ## WSL2中引入systemd
 
-**参考来源:**[开源中国OSC][2]
+**参考来源:**[开源中国OSC][2]  
 微软和 Canonical 联合宣布，systemd 现在可以在 Windows Subsystem for Linux（WSL2）中运行了，此举可以让用户在 Windows 设备上获得更加全面的 Linux 体验。systemd 的作者 Lennart Poettering 在 7 月份离开红帽并加入了微软。
 
 systemd 是一套用于 Linux 系统的基本构建模块，它提供了一个系统和服务管理器，作为 PID 1 运行并启动系统的其他部分。
