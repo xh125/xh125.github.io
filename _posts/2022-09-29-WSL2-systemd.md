@@ -3,7 +3,7 @@ layout:     post
 title:      "WSL2中引入systemd"
 date:       2022-09-29 12:56:00
 author:     "Xiehua"
-header-img: "images/post/post-bg-understand.jpg"
+header-img: "images/post/post-bg-wsl2.png"
 tags:
     - WSL
     - systemd
