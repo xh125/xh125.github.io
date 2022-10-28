@@ -3,7 +3,7 @@ layout:     post
 title:      "Materials Studio"
 date:       2022-10-28 14:56:00
 author:     "Xiehua"
-header-img: "img/post-bg-vasp.png"
+header-img: "img/post-bg-understand.jpg"
 tags:
     - Matetials Studio
 ---
