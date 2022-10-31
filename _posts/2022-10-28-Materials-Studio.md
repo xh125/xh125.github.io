@@ -13,16 +13,16 @@ tags:
 **2020 Windows版本：** [BIOVIA_2020.MaterialsStudio2020.exe][2]  
 License文件：[msi2020.lic][3]
 
-**2019 Windows版本：** [BIOVIA_2019.MaterialsStudio2019.exe][4]
-**2019 Linux版本：** [BIOVIA_2019.MaterialsStudio2019.tgz][5]
+**2019 Windows版本：** [BIOVIA_2019.MaterialsStudio2019.exe][4]  
+**2019 Linux版本：** [BIOVIA_2019.MaterialsStudio2019.tgz][5]  
 License文件：[msi2019.lic][6]
 
-**2018 Windows版本：** [BIOVIA_2018.MaterialsStudio2018.exe][7]
-**2018 Linux版本：** [BIOVIA_2018.MaterialsStudio2018.tgz][8]
+**2018 Windows版本：** [BIOVIA_2018.MaterialsStudio2018.exe][7]  
+**2018 Linux版本：** [BIOVIA_2018.MaterialsStudio2018.tgz][8]  
 License文件：[msi2018.lic][9]
 
-**2017 R2 Windows版本：** [BIOVIA_2017.MaterialsStudio2017.exe][10]
-**2017 R2 Linux版本：** [BIOVIA_2017.MaterialsStudio2017.tgz][11]
+**2017 R2 Windows版本：** [BIOVIA_2017.MaterialsStudio2017.exe][10]  
+**2017 R2 Linux版本：** [BIOVIA_2017.MaterialsStudio2017.tgz][11]  
 License文件：[msi_SSQ.lic][12]
 
 ### 2020版安装说明：
