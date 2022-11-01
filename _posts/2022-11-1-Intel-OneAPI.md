@@ -22,24 +22,24 @@ tags:
 
 #### (Linux版本2022.3)
 
-[l_BaseKit_p_2022.3.0.8767_offline.sh][4]
+[l_BaseKit_p_2022.3.0.8767_offline.sh][4]  
 [l_HPCKit_p_2022.3.0.8751_offline.sh][5]  
 
 ### 共享的Windows安装包
 
 #### (Windows版本2022.1)
 
-[w_BaseKit_p_2022.1.0.116_offline.exe][6]
+[w_BaseKit_p_2022.1.0.116_offline.exe][6]  
 [w_HPCKit_p_2022.1.0.93_offline.exe][7]  
 
 #### (Windows版本2022.2)
 
-[w_BaseKit_p_2022.2.0.252_offline.exe][8]
+[w_BaseKit_p_2022.2.0.252_offline.exe][8]  
 [w_HPCKit_p_2022.2.0.173_offline.exe][9]
 
 #### (Windows版本2022.3)
 
-[w_BaseKit_p_2022.3.0.9573_offline.exe][10]
+[w_BaseKit_p_2022.3.0.9573_offline.exe][10]  
 [w_HPCKit_p_2022.3.0.9564_offline.exe][11]
 
 [1]:https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#gs.gtup6d
