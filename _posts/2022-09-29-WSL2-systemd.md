@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "WSL2中引入systemd"
+title:      "WSL2中引入systemd并开机自启动ssh服务"
 date:       2022-09-29 12:56:00
 author:     "Xiehua"
 header-img: "img/post-bg-wsl2-1.png"
@@ -35,6 +35,12 @@ wsl --update
 systemd=true
 ```
 • 然后通过在 PowerShell 中运行 `wsl --shutdown` 来重启实例，并重新启动 Ubuntu
+
+开机启动`ssh`服务
+
+```bash
+sudo systemctl enable ssh
+```
 
 
 **Note:** 文章中可能会有问题，欢迎指正，如有建议或者遇到问题，欢迎在评论区留言。评论系统采用了[Disqus系统][1]，需要翻墙才能加载。
