@@ -10,7 +10,7 @@ tags:
 ## Materials Studio下载
 
 **软件包下载地址：**  
-**2020 Windows版本：** [BIOVIA_2020.MaterialsStudio2020.exe][2]
+**2020 Windows版本：** [BIOVIA_2020.MaterialsStudio2020.exe][2]  
 **2020 Linux版本：** [BIOVIA_2020.MaterialsStudio2020.tar][13]  
 License文件：[msi2020.lic][3]
 
