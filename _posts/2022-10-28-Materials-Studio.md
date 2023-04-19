@@ -9,8 +9,9 @@ tags:
 ---
 ## Materials Studio下载
 
-**软件包下载地址：**
-**2020 Windows版本：** [BIOVIA_2020.MaterialsStudio2020.exe][2]  
+**软件包下载地址：**  
+**2020 Windows版本：** [BIOVIA_2020.MaterialsStudio2020.exe][2]
+**2020 Linux版本：** [BIOVIA_2020.MaterialsStudio2020.tar][13]  
 License文件：[msi2020.lic][3]
 
 **2019 Windows版本：** [BIOVIA_2019.MaterialsStudio2019.exe][4]  
@@ -84,3 +85,4 @@ NOTE: If you want to run Materials Studio on the local machine only, there is no
 [10]:https://stnuceducn-my.sharepoint.com/:u:/g/personal/1007034138_st_nuc_edu_cn/EdYOS2Was-1CqS6rjDbrU28BKmLVeA01fjbvgwrtoEpPmQ?e=ILsRai
 [11]:https://stnuceducn-my.sharepoint.com/:u:/g/personal/1007034138_st_nuc_edu_cn/ERUwKvKC4JtAgK3E3SC2DogBGo0u6sb3xCMZSFg52BMxSw?e=LIkmnT
 [12]:https://stnuceducn-my.sharepoint.com/:u:/g/personal/1007034138_st_nuc_edu_cn/ESNq7a0A6H5OquUabWyxARwBjuS1BGz_dCF7KrdAA1cYrA?e=a7AbVl
+[13]:https://stnuceducn-my.sharepoint.com/:u:/g/personal/1007034138_st_nuc_edu_cn/ES64NeO4JxxEsvTeIE27r1ABE8I71JxmdIPr-jMVXPvuiA?e=zE0gyp
