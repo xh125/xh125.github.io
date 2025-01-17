@@ -105,7 +105,7 @@ grep -A 12 " Total force =" vc-relax.out
 计算结束后，运行
 
 ```bash
-awk  '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out |sed -n '5,$p'
+awk '/Begin final coordinates/,/End final coordinates/{print $0}' vc-relax.out |sed -n '5,$p'
 ```
 
 得到以下输出（或在输出文件中可以找到）（vc-relax的结果）
